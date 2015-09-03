@@ -75,7 +75,7 @@ Course requirements include small weekly projects (studies), a project proposal,
 
 * Attendance and participation (35%). More than three unexcused absences will result in a decreased letter grade.
 
-* Weekly homework studies published online on the day it is due (20%).  
+* Weekly homework studies (submit 10) (20%).  
 
 * IDM coursework documentation using wordpress on [http://sites.bxmc.poly.edu](http://sites.bxmc.poly.edu/), Squarespace, Tumblr, or on Github.* (5%)
 
@@ -109,23 +109,23 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 **Week 1 (9/3):** Introduction to the class. Download and install required software. Variables, simple data types, math. Conditionals, loops, and simple algorithms. Basic 2D drawing.  
 - **Reading**: Learning Processing, ch1-3.
-- **Assignment (due before following class):** Sol Lewitt drawing exercise.
+- **Assignment:** Sol Lewitt drawing exercise.
 
 **Week 2 (9/10):** Variables, Conditionals & loops, Demystifying math.
 - **Reading**: Learning Processing, ch4-7, 9.
-- **Assignment (due before following class):** Sol Lewitt drawing exercise (extended).
+- **Assignment:** Sol Lewitt drawing exercise (extended).
 
 **Week 3 (9/17):** Arrays & collections. Visualizing data.
 - **Reading**: Nature of Code, Introduction, Chapters 1&2
-- **Assignment (due before following class):** In Processing, create a unique data visualization using the NYC Bicycle data set from class.  Post your visualization to the class page on OpenProcessing as well as your github repo.
+- **Assignment:** In Processing, create a unique data visualization using the NYC Bicycle data set from class.  Post your visualization to your github repo.
 
 **Week 4 (9/24):** Vectors and Forces: A look at simple systems used when creating motion and animation.
 - **Reading**: Nature of Code, Chapter 3
-- **Assignment (due before following class):** Extend the Nature of Code example we went over in class (Examples->Books->chp2_forces->NOC_2_4_forces_friction.pde) to include interaction with keyboard and/or mouse, as well as Perlin noise and vectors.
+- **Assignment:** Extend the Nature of Code example we went over in class (Examples->Books->chp2_forces->NOC_2_4_forces_friction.pde) to include interaction with keyboard and/or mouse, as well as Perlin noise and vectors.
 
 **Week 5 (10/1):** Oscillation: Waves, repetition, and sound.
 - **Reading**: Learning Processing, Chapter 8
-- **Assignment (due before following class):** Choose one of two possible assignments.  Option 1: Redesign the clock.  You must use trigonometry and Processing's time functions to design a novel clock.  See week_05->second_clock for inspiration.  Option 2: Write a Processing Sketch using the Minim Library in Processing.  I encourage you to go beyond the simple examples in Processing->File->Examples .  Try creating sounds and drawing the output of those sounds.  Use interaction with the keyboard and the mouse like we've done in class.  
+- **Assignment:** Choose one of two possible assignments.  Option 1: Redesign the clock.  You must use trigonometry and Processing's time functions to design a novel clock.  See week_05->second_clock for inspiration.  Option 2: Write a Processing Sketch using the Minim Library in Processing.  I encourage you to go beyond the simple examples in Processing->File->Examples .  Try creating sounds and drawing the output of those sounds.  Use interaction with the keyboard and the mouse like we've done in class.  
 
 **Week 6 (10/8):** Particle Systems and getting started with Object Oriented Programming.
 - **Reading**: Nature of Code, Chapter 4, 5
@@ -141,17 +141,17 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 **Week 8 (10/29):** Sensory input and physical computing: Arduino, sensors, and HCI. Serial communication/Firmata.
 - **Reading**: Programming Interactivity, Chapter 7
-- **Assignment (due before following class):** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  Try adapting the code you wrote last week in openframeworks for Processing.  Describe some of the strengths of each approach and why you might want to use one tool over another for your project. 
+- **Assignment:** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  Try adapting the code you wrote last week in openframeworks for Processing.  Describe some of the strengths of each approach and why you might want to use one tool over another for your project. 
 
 **Week 9 (11/5):** TBD
 
 **Week 10 (11/12):** Getting things to talk: javascript. Clients and servers. 
 - **Reading**: Programming Interactivity, Chapter 12
-- **Assignment (due before following class)::** Work on Final Projects.
+- **Assignment:** Work on Final Projects.
 
 **Week 11 (11/19):** Introduction to computer vision: Implementations of OpenCV in Processing/Javascript.
 - **Reading**: Programming Interactivity, Chapter 14
-- **Assignment (due before following class):** TBD
+- **Assignment:** TBD
 
 **Week 12 (11/26):** No class. Thanksgiving holiday
 
