@@ -139,11 +139,11 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 ## Part II
 
-**Week 8 (10/29):** Sensory input and physical computing: Arduino, sensors, and HCI. Serial communication/Firmata.
-- **Reading**: Programming Interactivity, Chapter 7
+**Week 8 (10/29):** Introduction to 3D programming in p5.js and THREE.js, pt.1
+- **Reading**: TBD
 - **Assignment:** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  Try adapting the code you wrote last week in openframeworks for Processing.  Describe some of the strengths of each approach and why you might want to use one tool over another for your project. 
 
-**Week 9 (11/5):** TBD
+**Week 9 (11/5):** Introduction to 3D programming in p5.js and THREE.js, pt.2
 
 **Week 10 (11/12):** Getting things to talk: javascript. Clients and servers. 
 - **Reading**: Programming Interactivity, Chapter 12
