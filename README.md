@@ -3,6 +3,7 @@ Go to [https://github.com/IDMNYU/DM-GY6063A-Creative-Coding-F2015/wiki/Class-not
 
 * * *
 
+
 ![NYU Polytechnic School of Engineering](https://camo.githubusercontent.com/984c060f5e4a81b2ffc9ad5b3b46fb2dd140ded6/687474703a2f2f7773322e706f6c6973686564736f6c69642e636f6d2f64652f6e79755f736f655f6c6f676f2e706e67)
 **_NYU SCHOOL OF ENGINEERING SYLLABUS_**
 
