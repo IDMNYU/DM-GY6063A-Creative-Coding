@@ -118,7 +118,7 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 **Week 2 (9/10):** Variables, Conditionals & loops, Demystifying math.
 - **Reading**: Learning Processing, ch4-7, 9.
-- **Assignment:** Sol Lewitt drawing exercise (extended).
+- **Assignment:** Geometric Abstraction exercise: [https://www.google.com/culturalinstitute/u/0/entity/%2Fm%2F05bw0l?projectId=art-project](https://www.google.com/culturalinstitute/u/0/entity/%2Fm%2F05bw0l?projectId=art-project).
 
 **Week 3 (9/17):** Arrays & collections. Visualizing data.
 - **Reading**: Nature of Code, Introduction, Chapters 1&2
