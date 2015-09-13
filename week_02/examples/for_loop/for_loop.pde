@@ -11,9 +11,13 @@ void draw(){
   scale(scalar);
   
   for(int i = 1; i <= numCircles; i++){
-    noFill();
     fill(random(255), random(255), random(255));
-    ellipse(width/2, height/2, width / i, width / i);
+    ellipse( width/2, height/2, width / i, width / i );
   }
-  scalar-=0.001;
+  println("before ", scalar);
+  
+  scalar = scalar - 0.0005;
+  //is the same as above
+  //scalar -= 0.0005;
+  println("after ", scalar);
 }

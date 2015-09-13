@@ -19,7 +19,7 @@ Thurs 6:30-9:20p; MAGNET 2MTC 817
 
 To contact Instructor: KSiwoff@nyu.edu
 
-Office hours: By appointment
+Office hours: GA office hours are held 1pm-3pm every Friday in MAGNET rm824.  Professor office hours by appointment.
 
 # IDM Program Objectives
 
