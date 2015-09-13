@@ -121,9 +121,9 @@ This schedule is subject to change depending on the interests and pace of the cl
 - **Reading**: Learning Processing, ch4-7, 9.
 - **Assignment:** Geometric Abstraction exercise: [https://www.google.com/culturalinstitute/u/0/entity/%2Fm%2F05bw0l?projectId=art-project](https://www.google.com/culturalinstitute/u/0/entity/%2Fm%2F05bw0l?projectId=art-project).
 
-**Week 3 (9/17):** Arrays & collections. Visualizing data.
+**Week 3 (9/17):** Introduction to p5.js and Javascript.  Arrays. Interaction.
 - **Reading**: Nature of Code, Introduction, Chapters 1&2
-- **Assignment:** In Processing, create a unique data visualization using the NYC Bicycle data set from class.  Post your visualization to your github repo.
+- **Assignment:** TBD
 
 **Week 4 (9/24):** Vectors and Forces: A look at simple systems used when creating motion and animation.
 - **Reading**: Nature of Code, Chapter 3
