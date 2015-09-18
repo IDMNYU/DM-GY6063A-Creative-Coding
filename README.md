@@ -123,7 +123,7 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 **Week 3 (9/17):** Introduction to p5.js and Javascript.  Arrays. Interaction.
 - **Reading**: Nature of Code, Introduction, Chapters 1&2
-- **Assignment:** TBD
+- **Assignment:** Convert a previous Processing Sketch to p5.js and post the code to github + post the live interactive link to either neocities or your own server.
 
 **Week 4 (9/24):** Vectors and Forces: A look at simple systems used when creating motion and animation.
 - **Reading**: Nature of Code, Chapter 3
