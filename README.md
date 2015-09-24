@@ -127,7 +127,7 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 **Week 4 (9/24):** Vectors and Forces: A look at simple systems used when creating motion and animation.
 - **Reading**: Nature of Code, Chapter 3
-- **Assignment:** Extend the Nature of Code example we went over in class (Examples->Books->chp2_forces->NOC_2_4_forces_friction.pde) to include interaction with keyboard and/or mouse, as well as Perlin noise and vectors.
+- **Assignment:** Create a generative tree / shrubbery using noise() and our beginShape() / endShape() functions.  Try storing the vertex positions in an array so you can redraw the same tree on mouse click.
 
 **Week 5 (10/1):** Oscillation: Waves, repetition, and sound.
 - **Reading**: Learning Processing, Chapter 8
