@@ -131,21 +131,21 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 **Week 5 (10/1):** Oscillation: Waves, repetition, and sound.
 - **Reading**: Learning Processing, Chapter 8
-- **Assignment:** Choose one of two possible assignments.  Option 1: Redesign the clock.  You must use trigonometry and Processing's time functions to design a novel clock.  See week_05->second_clock for inspiration.  Option 2: Write a Processing Sketch using the Minim Library in Processing.  I encourage you to go beyond the simple examples in Processing->File->Examples .  Try creating sounds and drawing the output of those sounds.  Use interaction with the keyboard and the mouse like we've done in class.  
+- **Assignment:** Redesign the clock.  You must use trigonometry and Processing's time functions to design a novel clock.  See week_05->second_clock for inspiration.  
 
-**Week 6 (10/8):** Particle Systems and getting started with Object Oriented Programming.
+**Week 6 (10/8):** Getting started with Object Oriented Programming + the Document Object Model (DOM)
 - **Reading**: Nature of Code, Chapter 4, 5
-- **Assignment:** Final project proposal (written and presentation);
+- **Assignment:** Create a novel single-page website/experience using the p5.js DOM library.
 
-**Week 7 (10/15):** Object oriented programming continued.
+**Week 7 (10/15):** Object oriented programming continued. Particle Systems
 - TBD
 
-**(10/22):** Project proposals.
+**(10/22):** Guest lecture.
 - TBD
 
 ## Part II
 
-**Week 8 (10/29):** Introduction to 3D programming in p5.js and THREE.js, pt.1
+**Week 8 (10/29):** Final Project Proposals in class.  Introduction to 3D programming in p5.js and THREE.js, pt.1
 - **Reading**: TBD
 - **Assignment:** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  Try adapting the code you wrote last week in openframeworks for Processing.  Describe some of the strengths of each approach and why you might want to use one tool over another for your project. 
 
@@ -164,7 +164,7 @@ This schedule is subject to change depending on the interests and pace of the cl
 **Week 13 (12/3):** Video access and non-linear narrative.
 - **Reading**: TBD
 
-**Week 14 (12/10):** **Guest speaker; **Final Project Meetings, general debugging, guest speaker.
+**Week 14 (12/10):** Final Project Meetings, general debugging, guest speaker.
 
 **Final (12/17):** Final Project Presentations.
 

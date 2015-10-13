@@ -4,9 +4,7 @@ var noiseIncr = 0.01;
 function setup() {
   createCanvas(500,500);
 
-  saveFrames("sketch", "png", 2, 12, function(data){
-    console.log(data);
-  });
+  saveFrames("sketch", "png", 2, 12);
 }
 
 function draw() {

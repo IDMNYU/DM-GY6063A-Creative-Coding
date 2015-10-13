@@ -8,7 +8,7 @@ var x = 0.0;
 var periodSlider;
 function setup(){
   createCanvas(windowWidth,windowHeight);
-  periodSlider = createSlider(0,100, 45);
+  periodSlider = createSlider(1,100, 45);
   periodSlider.position(20,20);
 }
 function draw(){
@@ -18,7 +18,8 @@ function draw(){
   translate(width/2, height/2);
   var amplitude = width/2;//play with the amplitude value 
   var angle = frameCount / periodSlider.value() * TWO_PI;
-  x = sin(angle)* amplitude;
+  x = cos(angle)* amplitude;
+
   fill(245,0,123);
-  rect(0,0,x,40);
+  rect(x,0,40,40);
 }

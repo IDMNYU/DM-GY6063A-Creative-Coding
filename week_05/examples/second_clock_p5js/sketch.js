@@ -4,7 +4,7 @@
 **/
 var radius = 250.0;
 var angle = 0.0;
-var x=0,y=0;
+var x=0, y=0;
 function setup(){
   createCanvas(windowWidth,windowHeight);
 }
@@ -15,6 +15,7 @@ function draw(){
   
   angle = (second() / 59.0) * TWO_PI;
   
+  // memorize this formula, it's helpful
   x = cos(angle)* radius;
   y = sin(angle)* radius;
   
