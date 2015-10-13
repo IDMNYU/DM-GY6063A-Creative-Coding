@@ -137,34 +137,34 @@ This schedule is subject to change depending on the interests and pace of the cl
 - **Reading**: Nature of Code, Chapter 4, 5
 - **Assignment:** Create a novel single-page website/experience using the p5.js DOM library.
 
-**Week 7 (10/15):** Object oriented programming continued. Particle Systems
+**Week 7 (10/15):** Object oriented programming continued. Particle Systems and the return of Force!
 - TBD
 
-**(10/22):** Guest lecture.
+**Week 8 (10/22):** Guest lecture.
 - TBD
 
 ## Part II
 
-**Week 8 (10/29):** Final Project Proposals in class.  Introduction to 3D programming in p5.js and THREE.js, pt.1
+**Week 9 (10/29):** Final Project Proposals in class.  Introduction to 3D programming in p5.js and THREE.js, pt.1
 - **Reading**: TBD
 - **Assignment:** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  Try adapting the code you wrote last week in openframeworks for Processing.  Describe some of the strengths of each approach and why you might want to use one tool over another for your project. 
 
-**Week 9 (11/5):** Introduction to 3D programming in p5.js and THREE.js, pt.2
+**Week 10 (11/5):** Introduction to 3D programming in p5.js and THREE.js, pt.2
 
-**Week 10 (11/12):** Getting things to talk: javascript. Clients and servers. 
+**Week 11 (11/12):** Getting things to talk: javascript. Clients and servers. 
 - **Reading**: Programming Interactivity, Chapter 12
 - **Assignment:** Work on Final Projects.
 
-**Week 11 (11/19):** Introduction to computer vision: Implementations of OpenCV in Processing/Javascript.
+**Week 12 (11/19):** Introduction to computer vision: Implementations of OpenCV in Processing/Javascript.
 - **Reading**: Programming Interactivity, Chapter 14
 - **Assignment:** TBD
 
-**Week 12 (11/26):** No class. Thanksgiving holiday
+**Week 13 (11/26):** No class. Thanksgiving holiday
 
-**Week 13 (12/3):** Video access and non-linear narrative.
+**Week 14 (12/3):** Video access and non-linear narrative.
 - **Reading**: TBD
 
-**Week 14 (12/10):** Final Project Meetings, general debugging, guest speaker.
+**Week 15 (12/10):** Final Project Meetings, general debugging, guest speaker.
 
 **Final (12/17):** Final Project Presentations.
 
