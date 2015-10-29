@@ -22,12 +22,12 @@ Particle.prototype = {
     this.pos.add(new p5.Vector(0,this.speed));
   },
   render : function(){
-    fill(particle.color);
+    fill(this.color);
     noStroke();
-    ellipse(particle.pos.x,particle.pos.y, 100, 100);
+    ellipse(this.pos.x,this.pos.y, 100, 100);
     fill(255);//white text
     textAlign(CENTER);
-    text(particle.name, particle.pos.x, particle.pos.y);
+    text(this.name, this.pos.x, this.pos.y);
   }
   
 };

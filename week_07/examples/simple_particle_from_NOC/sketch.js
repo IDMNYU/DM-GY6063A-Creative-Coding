@@ -26,6 +26,9 @@ function setup(){
   createCanvas(windowWidth,windowHeight);
   for (var i=0; i< 50; i++){
     particles[i] = new Particle(new p5.Vector(width/2, height/2));
+    
+    //also works like this!
+    //particles.push(new Particle(new p5.Vector(width/2, height/2)));
   }
 }
 
