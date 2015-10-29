@@ -147,7 +147,7 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 **Week 9 (10/29):** Final Project Proposals in class.  Introduction to 3D programming in p5.js and THREE.js, pt.1
 - **Reading**: TBD
-- **Assignment:** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  Try adapting the code you wrote last week in openframeworks for Processing.  Describe some of the strengths of each approach and why you might want to use one tool over another for your project. 
+- **Assignment:** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  The content in this post should be similar if not the same as your presentation, however, it should be formated for your blog, instead of a preso file. 
 
 **Week 10 (11/5):** Introduction to 3D programming in p5.js and THREE.js, pt.2
 
