@@ -137,11 +137,11 @@ This schedule is subject to change depending on the interests and pace of the cl
 - **Reading**: Nature of Code, Chapter 4, 5
 - **Assignment:** Create a novel single-page website/experience using the p5.js DOM library.
 
-**Week 7 (10/15):** Object oriented programming continued. Particle Systems and the return of Force!
-- TBD
+**Week 7 (10/15):** Object oriented programming continued. Particle Systems and the return of Force!  Simple introduction to JSON and API's.
+- Create a sketch using a publicly accessible data api or data source using JSON.  use the loadJSON() method in p5.js
 
-**Week 8 (10/22):** Guest lecture.
-- TBD
+**Week 8 (10/22):** Guest lecture. String Parsing and APIs
+- Final project PROPOSAL due next week in class (format can be .PPT, Keynote, PDF, or another presentation format of your choice).
 
 ## Part II
 
