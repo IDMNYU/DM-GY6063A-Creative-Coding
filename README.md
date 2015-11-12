@@ -167,6 +167,9 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 **Week 14 Final (12/10):** Final Project Presentations.
 
+**(12/17):** Final 1 on 1's. 
+
+
 * * *
 
 
