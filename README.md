@@ -150,6 +150,7 @@ This schedule is subject to change depending on the interests and pace of the cl
 - **Assignment:** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  The content in this post should be similar if not the same as your presentation, however, it should be formated for your blog, instead of a preso file. 
 
 **Week 10 (11/5):** Introduction to 3D programming in p5.js and THREE.js, pt.2
+- **Assignment:** Work on Final Projects.
 
 **Week 11 (11/12):** Getting things to talk: javascript. Clients and servers. 
 - **Reading**: Programming Interactivity, Chapter 12
@@ -159,14 +160,12 @@ This schedule is subject to change depending on the interests and pace of the cl
 - **Reading**: Programming Interactivity, Chapter 14
 - **Assignment:** TBD
 
-**Week 13 (11/26):** No class. Thanksgiving holiday
+**(11/26):** No class. Thanksgiving holiday
 
-**Week 14 (12/3):** Video access and non-linear narrative.
+**Week 13 (12/3):** Video access and non-linear narrative.
 - **Reading**: TBD
 
-**Week 15 (12/10):** Final Project Meetings, general debugging, guest speaker.
-
-**Final (12/17):** Final Project Presentations.
+**Week 14 Final (12/10):** Final Project Presentations.
 
 * * *
 
