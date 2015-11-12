@@ -150,7 +150,7 @@ This schedule is subject to change depending on the interests and pace of the cl
 - **Assignment:** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  The content in this post should be similar if not the same as your presentation, however, it should be formated for your blog, instead of a preso file. 
 
 **Week 10 (11/5):** Introduction to 3D programming in p5.js and THREE.js, pt.2
-- **Assignment:** Work on Final Projects.
+- **Assignment:** Use THREE.js to import a 3D model (obj, stl, etc.) and use it to create an interesting sketch. Work on Final Projects.
 
 **Week 11 (11/12):** Getting things to talk: javascript. Clients and servers. 
 - **Reading**: Programming Interactivity, Chapter 12
