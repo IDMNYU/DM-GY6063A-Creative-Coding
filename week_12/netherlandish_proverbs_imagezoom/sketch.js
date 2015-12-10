@@ -17,14 +17,9 @@ var proverbs,
   EXTRA_ZOOM_SPEED = 1.75,
   FRAME_RATE = 30;
 
-function setup() {
-  frameRate(FRAME_RATE);
-  var image_name =
-    'image/netherlandish_proverbs.jpg';
-
-  proverbs = loadImage(image_name, function () {
-    createCanvas(proverbs.width, proverbs.height);
-    image(proverbs, 0, 0);
+function doSomethingAfterImageLoad(){
+  createCanvas(proverbs.width, proverbs.height);
+    image(proverbs, 100, 0);
     RECT_WIDTH = floor(proverbs.width * 0.075);
     RECT_HEIGHT = floor(RECT_WIDTH / (proverbs.width / proverbs.height));
     dWidth = RECT_WIDTH * 10;
@@ -33,7 +28,15 @@ function setup() {
     dy = floor((proverbs.height / 2) - (dHeight / 2));
     destTopLeft = createVector(dx, dy);
     destBottomRight = createVector(dx + dWidth, dy + dHeight);
-  });
+}
+
+
+function setup() {
+  frameRate(FRAME_RATE);
+  var image_name =
+    'image/netherlandish_proverbs.jpg';
+
+  proverbs = loadImage(image_name, doSomethingAfterImageLoad);
 }
 
 function draw() {

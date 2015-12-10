@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EAE6E7CD-6921-4E88-BBC3-C7D6E6CBB163</string>
+	<key>IDESourceControlProjectName</key>
+	<string>VideoExampleSlitscan</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D2183CCFC750B7C732BB11FB9D00FBF5E0C47F21</key>
+		<string>https://github.com/IDMNYU/Creative-Coding-Grad-Spring-2015.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>week_13/VideoExampleSlitscan/VideoExampleSlitscan.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D2183CCFC750B7C732BB11FB9D00FBF5E0C47F21</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/IDMNYU/Creative-Coding-Grad-Spring-2015.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D2183CCFC750B7C732BB11FB9D00FBF5E0C47F21</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D2183CCFC750B7C732BB11FB9D00FBF5E0C47F21</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Creative-Coding-Grad-Spring-2015</string>
+		</dict>
+	</array>
+</dict>
+</plist>
