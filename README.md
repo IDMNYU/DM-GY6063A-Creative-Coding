@@ -158,16 +158,18 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 **Week 12 (11/19):** Introduction to computer vision: Implementations of OpenCV in Processing/Javascript.
 - **Reading**: Programming Interactivity, Chapter 14
-- **Assignment:** TBD
+- **Assignment:** Work on Final Projects, and catch up on remaining hw assignments if you need to.
 
 **(11/26):** No class. Thanksgiving holiday
 
 **Week 13 (12/3):** Video access and non-linear narrative.
-- **Reading**: TBD
+- **Assignments 11&12**: Either or both of:
+    + 1. Continue your video project from class using some of the techniques we've discussed in class.  
+    + 2. Create a Sprite Animation or simple single-player game using images in p5.
 
-**Week 14 Final (12/10):** Final Project Presentations.
+**Week 14 Final (12/10):** 
 
-**(12/17):** Final 1 on 1's. 
+**(12/17):** Final Project Presentations.  All homework assignments due
 
 
 * * *
