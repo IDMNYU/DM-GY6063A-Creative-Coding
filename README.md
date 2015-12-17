@@ -168,8 +168,8 @@ This schedule is subject to change depending on the interests and pace of the cl
     + 2. Create a Sprite Animation or simple single-player game using images in p5.
 
 **Week 14 Javascript Object redux (12/10):** 
-- **Alt assignment**: Take an existing sketch and refactor/tweak it to use javascript objects instead of multi-line function calls.
-- 
+- **Alt assignment** : Take an existing sketch and refactor/tweak it to use javascript objects instead of multi-line function calls.
+
 **(12/17):** Final Project Presentations.  All homework assignments due
 
 
