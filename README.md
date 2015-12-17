@@ -138,7 +138,7 @@ This schedule is subject to change depending on the interests and pace of the cl
 - **Assignment:** Create a novel single-page website/experience using the p5.js DOM library.
 
 **Week 7 (10/15):** Object oriented programming continued. Particle Systems and the return of Force!  Simple introduction to JSON and API's.
-- Create a sketch using a publicly accessible data api or data source using JSON.  use the loadJSON() method in p5.js
+- **Assignment:** Create a sketch using a publicly accessible data api or data source using JSON.  use the loadJSON() method in p5.js
 
 **Week 8 (10/22):** Guest lecture. String Parsing and APIs
 - Final project PROPOSAL due next week in class (format can be .PPT, Keynote, PDF, or another presentation format of your choice).
@@ -167,8 +167,9 @@ This schedule is subject to change depending on the interests and pace of the cl
     + 1. Continue your video project from class using some of the techniques we've discussed in class.  
     + 2. Create a Sprite Animation or simple single-player game using images in p5.
 
-**Week 14 Final (12/10):** 
-
+**Week 14 Javascript Object redux (12/10):** 
+- **Alt assignment**: Take an existing sketch and refactor/tweak it to use javascript objects instead of multi-line function calls.
+- 
 **(12/17):** Final Project Presentations.  All homework assignments due
 
 
