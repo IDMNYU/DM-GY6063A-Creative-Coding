@@ -1,5 +1,5 @@
 # Looking for class notes ?
-Go to [https://github.com/IDMNYU/DM-GY6063A-Creative-Coding-F2015/wiki/Class-notes](https://github.com/IDMNYU/DM-GY6063A-Creative-Coding-F2015/wiki/Class-notes)
+Go to [https://github.com/IDMNYU/DM-GY6063A-Creative-Coding/wiki/Class-notes](https://github.com/IDMNYU/DM-GY6063A-Creative-Coding/wiki/Class-notes)
 
 * * *
 
@@ -11,21 +11,21 @@ Department of Technology, Culture and Society (TCS)
 
 # DM 6063A Creative Coding
 
-**Fall 2015**
+**Spring 2016**
 
 Instructor Kevin Siwoff
 
-Thurs 6:30-9:20p; MAGNET 2MTC 817
+Mon 6:30-9:20p; MAGNET 2MTC 817
 
 To contact Instructor: KSiwoff@nyu.edu
 
-Office hours: GA office hours are held 1pm-3pm every Friday in MAGNET rm824.  Professor office hours by appointment.
+Office hours: Professor office hours by appointment.
 
 # IDM Program Objectives
 
 Students will:
 
-* Develop   **conceptual thinking skills** to generate ideas and content in order to solve problems or create   opportunities.
+* Develop   **conceptual thinking skills** to generate ideas and content in order to solve problems or create opportunities in art and design.
 
 * Develop   **technical skills** to realize their ideas.
 
@@ -47,21 +47,19 @@ Some of the programming environments we will work with include:
 
 ### Core:
 
-* Processing: [http://processing.org](http://processing.org/)
-
 * P5.js: [http://p5js.org](http://p5js.org/)
 
 ### Also:
 
-* Tone.js:  [https://github.com/TONEnoTONE/Tone.js/](https://github.com/TONEnoTONE/Tone.js/)
+* ffmpeg:[https://www.ffmpeg.org/](https://www.ffmpeg.org/)
 
-* Arduino: [https://www.arduino.cc/](https://www.arduino.cc/)
+* Imagemagick:[http://www.imagemagick.org](http://www.imagemagick.org)
 
 # Course Objectives
 
 Students in this course will:
 
-* Understand the basics of creative coding in Java (Processing) and Javascript (P5.js / Node.js).
+* Understand the basics of creative coding in Javascript (p5.js).
 
 * Apply their understanding of digital media to software.
 
@@ -79,106 +77,100 @@ This course will be comprised of 13 weekly classes, 1 final project proposal, an
 
 Course requirements include small weekly projects (studies), a project proposal, and a final project & full critique presented to the class. The grading breakdown is as follows:
 
-* Attendance and participation (35%). More than three unexcused absences will result in a decreased letter grade.
+* Attendance and participation (25%). More than three unexcused absences will result in a decreased letter grade.
 
-* Weekly homework studies (submit 10) (20%).  
+* Weekly homework studies (submit 12) (30%).  
 
-* IDM coursework documentation using wordpress on [http://sites.bxmc.poly.edu](http://sites.bxmc.poly.edu/), Squarespace, Tumblr, or on Github.* (5%)
+* IDM coursework documentation blog on Tumblr (20%). See documentation section for more info on blog requirements.
 
-* Final project proposal presented to class (15%).
-
-* Final project. This project can be an interactive tool, a data visualization/sonification exercise, a performance project, or any other approved proposal. Each project must show off creative skills within a software environment you create (25%).
+* Final project. This project can be an interactive tool, a data visualization/sonification, a performance project, or any other approved proposal. Your project must use p5.js (25%).
 
 # Final project
 
-For the final project & proposal, students may choose to work individually or in pairs.  If  working as a group, each student is responsible for 50% of the project.
+For the final project & proposal, students may choose to work individually or in pairs.  If  working as a pair, each student is responsible for 50% of the project.
 
 # Readings
 
 ### Required
 * [Learning Processing](http://www.amazon.com/Learning-Processing-Second-Edition-Programming/dp/0123944430/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=learniproces-20&linkId=757eff7b49e61c381b17a43c7dec3eee), by Daniel Shiffman.
-
-* [The Nature of Code](http://natureofcode.com/), by Daniel Shiffman.
-
-### Suggested
 * [Make: Getting Started with p5.js: Making Interactive Graphics in JavaScript and Processing](http://www.amazon.com/Make-Interactive-Graphics-JavaScript-Processing/dp/1457186772/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=processing09-20&linkId=339c77c7f47b2f586ae88af7b11a18a7), by Lauren McCarthy, Ben Fry, and Casey Reas.
 
-* **Programming Interactivity A Designer's Guide to Processing, Arduino, and openFrameworks**,  by Joshua Noble. ISBN:978-0-596-15414-1
+### Suggested
+
 
 * * *
 
 # Class Schedule
 
-This schedule is subject to change depending on the interests and pace of the class, etc. In addition, guest speakers will come in and talk about their work/process with the class; Guest appearance scheduling will be dependent upon his/her availability.
+This schedule is subject to change depending on the interests and pace of the class, etc. In addition, guest speakers will come in and talk about their work/process with the class. Guest appearance scheduling will be dependent upon his/her availability.
 
 ## Part I
 
-**Week 1 (9/3):** Introduction to the class. Download and install required software. Variables, simple data types, math. Conditionals, loops, and simple algorithms. Basic 2D drawing.  
-- **Reading**: Learning Processing, ch1-3.
+**Week 1 (1/25):** Introduction to the class. Download and install required software. Basics of 2D drawing.
+- **Reading**: Getting Started With p5.js, ch.1-3
 - **Assignment:** Sol Lewitt drawing exercise.
 
-**Week 2 (9/10):** Variables, Conditionals & loops, Demystifying math.
-- **Reading**: Learning Processing, ch4-7, 9.
+**Week 2 (2/1):** Variables and data types. Conditionals.
+- **Reading**: Getting Started With p5.js, ch.4
 - **Assignment:** Geometric Abstraction exercise: [https://www.google.com/culturalinstitute/u/0/entity/%2Fm%2F05bw0l?projectId=art-project](https://www.google.com/culturalinstitute/u/0/entity/%2Fm%2F05bw0l?projectId=art-project).
 
-**Week 3 (9/17):** Introduction to p5.js and Javascript.  Arrays. Interaction.
-- **Reading**: Nature of Code, Introduction, Chapters 1&2
-- **Assignment:** Convert a previous Processing Sketch to p5.js and post the code to github + post the live interactive link to either neocities or your own server.
+**Week 3 (2/8):** Arrays and collections. Looping and repetition.
+- **Reading**: Getting Started With p5.js, ch.11
+- **Assignment:** TBD
 
-**Week 4 (9/24):** Vectors and Forces: A look at simple systems used when creating motion and animation.
-- **Reading**: Nature of Code, Chapter 3
-- **Assignment:** Create a generative tree / shrubbery using noise() and our beginShape() / endShape() functions.  Try storing the vertex positions in an array so you can redraw the same tree on mouse click.
+**(2/15): Presidents' Day** No class.
 
-**Week 5 (10/1):** Oscillation: Waves, repetition, and sound.
-- **Reading**: Learning Processing, Chapter 8
-- **Assignment:** Redesign the clock.  You must use trigonometry and Processing's time functions to design a novel clock.  See week_05->second_clock for inspiration.  
+**Week 4 (2/22):** Color
+- **Reading**: Getting Started With p5.js, pgs.29-33; The Interaction of Color, "ch.IV A color has many faces- the relativity of color"
+- **Assignment:** Pick one of the plates from Josef Albers' "The Interaction of Color" and recreate the plate as a p5.js sketch.
 
-**Week 6 (10/8):** Getting started with Object Oriented Programming + the Document Object Model (DOM)
-- **Reading**: Nature of Code, Chapter 4, 5
-- **Assignment:** Create a novel single-page website/experience using the p5.js DOM library.
+**Week 5 (2/29):**  Functions, and interaction with the keyboard and mouse.
+- **Reading**: Gettings Started With p5.js, ch.9
+- **Assignment:** Create a generative tree / shrubbery using beginShape() / endShape() functions.  Try storing the vertex positions in an array so you can redraw the same tree on mouse click.
 
-**Week 7 (10/15):** Object oriented programming continued. Particle Systems and the return of Force!  Simple introduction to JSON and API's.
-- **Assignment:** Create a sketch using a publicly accessible data api or data source using JSON.  use the loadJSON() method in p5.js
+**Week 6 (3/7):** Transformation and translation.
+- **Reading**: Getting Started With p5.js, ch.6
+- **Assignment:**  
 
-**Week 8 (10/22):** Guest lecture. String Parsing and APIs
-- Final project PROPOSAL due next week in class (format can be .PPT, Keynote, PDF, or another presentation format of your choice).
+**(3/14): Spring break:** No class. 
 
 ## Part II
 
-**Week 9 (10/29):** Final Project Proposals in class.  Introduction to 3D programming in p5.js and THREE.js, pt.1
+**Week 7 (3/21):** Harmonic motion and animation.
+- **Reading**: Getting Started With p5.js, ch.8
+- **Assignment:** Redesign the clock.  You must use trigonometry and p5's time functions to design a novel clock.  See week_05->second_clock for inspiration. 
+
+**Week 8 (3/28):** Guest Lecturer. TBD.
 - **Reading**: TBD
-- **Assignment:** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  The content in this post should be similar if not the same as your presentation, however, it should be formated for your blog, instead of a preso file. 
+- **Assignment:** TBD 
 
-**Week 10 (11/5):** Introduction to 3D programming in p5.js and THREE.js, pt.2
-- **Assignment:** Use THREE.js to import a 3D model (obj, stl, etc.) and use it to create an interesting sketch. Work on Final Projects.
+**Week 9 (4/4):** Object Oriented Programming
+- **Reading**: Getting Started With p5.js, ch.10
+- **Assignment:** TBD
 
-**Week 11 (11/12):** Getting things to talk: javascript. Clients and servers. 
-- **Reading**: Programming Interactivity, Chapter 12
-- **Assignment:** Work on Final Projects.
+**Week 10 (4/11):** The Document Object Model (DOM).
+- **Reading**: TBD
+- **Assignment:** Create a novel single-page website/experience using the p5.js DOM library.
 
-**Week 12 (11/19):** Introduction to computer vision: Implementations of OpenCV in Processing/Javascript.
-- **Reading**: Programming Interactivity, Chapter 14
-- **Assignment:** Work on Final Projects, and catch up on remaining hw assignments if you need to.
+**Week 11 (4/18):** Introduction to 3D programming in p5.js
+- **Reading**: TBD
+- **Assignment:** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  The content in this post should be similar if not the same as your presentation, however, it should be formated for your blog, instead of a preso file.
 
-**(11/26):** No class. Thanksgiving holiday
+**Week 12 (4/25):** Data.
+- **Reading**: Getting Started With p5.js, ch.12
+- **Assignment:** TBD
 
-**Week 13 (12/3):** Video access and non-linear narrative.
+**Week 13 (5/2):** Media: Video and images. ffmpeg and imagemagick.
+- **Reading**: Getting Started With p5.js, ch.7
 - **Assignments 11&12**: Either or both of:
     + 1. Continue your video project from class using some of the techniques we've discussed in class.  
     + 2. Create a Sprite Animation or simple single-player game using images in p5.
-
-**Week 14 Javascript Object redux (12/10):** 
 - **Alt assignment** : Take an existing sketch and refactor/tweak it to use javascript objects instead of multi-line function calls.
 
-**(12/17):** Final Project Presentations.  All homework assignments due
+**Week 14 (5/9):** Final Project Presentations.  All homework assignments due
 
 
 * * *
-
-
-***Wordpress information**
-
-For set up help with your own Wordpress instance on[ sites.bxmc.poly.edu](http://sites.bxmc.poly.edu/) please contact Elton Kwok, IDM Technology Director, MAGNET 883,eltonkwok@nyu.edu.
 
 # Qualitative Grading Overview
 
