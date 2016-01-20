@@ -93,9 +93,14 @@ For the final project & proposal, students may choose to work individually or in
 
 ### Required
 * [Learning Processing](http://www.amazon.com/Learning-Processing-Second-Edition-Programming/dp/0123944430/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=learniproces-20&linkId=757eff7b49e61c381b17a43c7dec3eee), by Daniel Shiffman.
+
 * [Make: Getting Started with p5.js: Making Interactive Graphics in JavaScript and Processing](http://www.amazon.com/Make-Interactive-Graphics-JavaScript-Processing/dp/1457186772/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=processing09-20&linkId=339c77c7f47b2f586ae88af7b11a18a7), by Lauren McCarthy, Ben Fry, and Casey Reas.
 
+* [The Interaction of Color](http://www.amazon.com/Interaction-Color-50th-Anniversary-Edition/dp/0300179359/ref=pd_sim_14_2?ie=UTF8&dpID=41wes0uTbYL&dpSrc=sims&preST=_AC_UL160_SR101%2C160_&refRID=072WSN6TN47ES08WK48V), by Josef Albers. (available at various NYU Library locations)
+
 ### Suggested
+
+* [Processing: A Programming Handbook for Visual Designers and Artists- second ed.](https://processing.org/handbook/), by Casey Reas and Ben Fry.
 
 
 * * *
