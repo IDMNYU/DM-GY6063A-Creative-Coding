@@ -83,7 +83,7 @@ Course requirements include small weekly projects (studies), a project proposal,
 
 * IDM coursework documentation blog on Tumblr (20%). See documentation section for more info on blog requirements.
 
-* Final project. This project can be an interactive tool, a data visualization/sonification, a performance project, or any other approved proposal. Your project must use p5.js (25%).
+* Final project. This project can be an interactive tool, a data visualization/sonification, or any other approved proposal. Your project must use p5.js.  All final projects will be collected and put together as an "interactive book" (25%).
 
 # Final project
 
