@@ -10,7 +10,6 @@ function draw(){
   scale(scalar);
   
   for(var i = 1; i <= numCircles; i++){
-    noFill();
     fill(random(255), random(255), random(255));
     ellipse(width/2, height/2, width / i, width / i);
   }
