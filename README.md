@@ -121,13 +121,16 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 **Week 3 (2/8):** Arrays and collections. Looping and repetition.
 - **Reading**: Getting Started With p5.js, ch.11
-- **Assignment:** TBD
+- **Assignment:** Study and use beginShape() and endShape() to draw 3 separate sketches.  Each sketch must contain vertices ( vertex() ).
+tools you will need:
+beginShape(), endShape(), vertex(), for loop
+
 
 **(2/15): Presidents' Day** No class.
 
 **Week 4 (2/22):** Color
-- **Reading**: Getting Started With p5.js, pgs.29-33; The Interaction of Color, "ch.IV A color has many faces- the relativity of color"
-- **Assignment:** Pick one of the plates from Josef Albers' "The Interaction of Color" and recreate the plate as a p5.js sketch.
+- **Reading**: Getting Started With p5.js, pgs.29-33; The Interaction of Color, "ch.IV A color has many faces- the relativity of color" and “ch XVIII. Free Studies: a challenge to imagination”
+- **Assignment**: Pick two themes from ch. 18 of Josef Albers’ “The Interaction of Color” and recreate them in p5.js.-
 
 **Week 5 (2/29):**  Functions, and interaction with the keyboard and mouse.
 - **Reading**: Gettings Started With p5.js, ch.9
