@@ -121,7 +121,10 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 **Week 3 (2/8):** Arrays and collections. Looping and repetition.
 - **Reading**: Getting Started With p5.js, ch.11
-- **Assignment:** TBD
+- **Assignment:** Study and use beginShape() and endShape() to draw 3 separate sketches.  Each sketch must contain vertices ( vertex() ).
+tools you will need:
+beginShape(), endShape(), vertex(), for loop
+
 
 **(2/15): Presidents' Day** No class.
 
