@@ -1,20 +1,15 @@
-function renderCode(sel) {
+function renderCode() {
   var _p5 = p5;
   var instances = [];
-  var selector = sel || 'example';
-  var examples = document.getElementsByClassName(selector);
-  if (examples.length > 0) {
-
-    var sketches = examples[0].getElementsByTagName('code');
-    var sketches_array = Array.prototype.slice.call(sketches);
-    var i = 0;
-    sketches_array.forEach(function(s) {
-      var rc = (s.parentNode.className.indexOf('norender') === -1);
-      setupCode(s, rc, i);
-      runCode(s, rc, i);
-      i++;
-    });
-  }
+  var sketches = document.body.getElementsByTagName('code');
+  var sketches_array = Array.prototype.slice.call(sketches);
+  var i = 0;
+  sketches_array.forEach(function(s) {
+    var rc = (s.parentNode.className.indexOf('norender') === -1);
+    setupCode(s, rc, i);
+    runCode(s, rc, i);
+    i++;
+  });
 
   function setupCode(sketch, rc, i) {
 
@@ -23,17 +18,17 @@ function renderCode(sel) {
     var sketchNode =  isRef ? sketch : sketch.parentNode;
     var sketchContainer = sketchNode.parentNode;
 
-    if (isRef) {
-      var pre = document.createElement('pre');
-      pre.className = 'ref';
-      pre.appendChild(sketchNode);
-      sketchContainer.appendChild(pre);
-      sketchContainer.className = 'example_container'
-      sketch.className = 'language-javascript';
-      if (!rc) {    
-        pre.className += ' norender';    
-      }
-    }
+    // if (isRef) {
+    //   var pre = document.createElement('pre');
+    //   pre.className = 'ref';
+    //   pre.appendChild(sketchNode);
+    //   sketchContainer.appendChild(pre);
+    //   sketchContainer.className = 'example_container'
+    //   sketch.className = 'language-javascript';
+    //   if (!rc) {
+    //     pre.className += ' norender';
+    //   }
+    // }
 
 
     // remove start and end lines
@@ -50,16 +45,16 @@ function renderCode(sel) {
     if (rc) {
       var cnv = document.createElement('div');
       cnv.className = 'cnv_div';
-      if (isRef) {
-        sketchContainer.appendChild(cnv);
-      } else {
-        sketchContainer.parentNode.insertBefore(cnv, sketchContainer);
-      }
+      // if (isRef) {
+      //   sketchContainer.appendChild(cnv);
+      // } else {
+      //   sketchContainer.parentNode.insertBefore(cnv, sketchContainer);
+      // }
+      sketchContainer.parentNode.insertBefore(cnv, sketchContainer);
 
       // create edit space
       var edit_space = document.createElement('div');
       edit_space.className = 'edit_space';
-      sketchContainer.appendChild(edit_space);
 
       //add buttons
       var edit_button = document.createElement('button');
@@ -74,6 +69,8 @@ function renderCode(sel) {
           setMode(sketch, 'run');
         }
       }
+
+      sketchContainer.insertBefore(edit_space, sketchNode);
 
       var reset_button = document.createElement('button');
       reset_button.value = 'reset';
@@ -114,7 +111,7 @@ function renderCode(sel) {
           });
           edit_button.innerHTML = 'edit';
           edit_area.style.display = 'none';
-          sketch.textContent = edit_area.value;
+          sketch.innerHTML = edit_area.value;
           runCode(sketch, true, i);
         }
       }
@@ -137,9 +134,9 @@ function renderCode(sel) {
 
     if (rc) {
       if (isRef) {
-        cnv = sketchContainer.getElementsByClassName('cnv_div')[0];
+        cnv = sketchContainer.getElementsByClassName('cnv_div')[i];
       } else {
-        cnv = parent.parentNode.getElementsByClassName('cnv_div')[0];
+        cnv = parent.parentNode.getElementsByClassName('cnv_div')[i];
       }
       cnv.innerHTML = '';
 
@@ -165,17 +162,13 @@ function renderCode(sel) {
           'touchStarted', 'touchMoved', 'touchEnded', 
           'keyPressed', 'keyReleased', 'keyTyped'];
           fxns.forEach(function(f) { 
-            var ind = runnable.indexOf(f+'(');
-            // this is a gross hack within a hacky script that
-            // ensures the function names found are not substrings
-            // proper use of regex would be preferable...
-            if (ind !== -1 && runnable[ind+f.length] === '(' &&
-              eval('typeof ' + f) !== 'undefined') {
+            if (runnable.indexOf(f) !== -1) {
               with (p) {
                 p[f] = eval(f);
               }
             }
           });
+
           if (typeof p.setup === 'undefined') {
             p.setup = function() {
               p.createCanvas(100, 100);
@@ -217,6 +210,7 @@ function renderCode(sel) {
       }
     }
   }
+
 
 }
 
