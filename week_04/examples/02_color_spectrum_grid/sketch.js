@@ -8,16 +8,16 @@ function draw() {
   //note: we can define our H,S,&B spectrum maxes
   //here we set hue max val to width and
   //sat val to height vars.
-  colorMode(HSB, width,height,100);
-  stepX = mouseX+2;
-  stepY = mouseY+2;
+  colorMode(HSB, 360,100,100);
+  stepX = map(mouseX,0,width, 20, 200);
+  stepY = map(mouseY,0, height, 20, 200);
   background(0);
   for(var y=0; y < height; y+=stepY){
     
     for(var x=0; x < width; x+=stepX){
       noStroke();
-      fill(x, height - y, 100);
-      rect(x,y,stepX,stepY);  
+      fill(x % 360, y % 100, 100);
+      rect(x,y,stepX,stepY);
     }
     
   }

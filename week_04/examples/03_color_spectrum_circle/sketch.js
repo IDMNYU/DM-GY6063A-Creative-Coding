@@ -25,11 +25,3 @@ function draw() {
     }
   endShape();
 }
-
-function keyPressed(){
-  
-  if(key == ''){
-    
-  }
-  
-}

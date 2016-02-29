@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 5 interactive examples</title>
+  <link rel="stylesheet" href="">
+  <!-- p5.js library -->
+  <script type="text/javascript" src="libraries/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <script type="text/javascript" src="libraries/p5.sound.js"></script>
+  <script type="text/javascript" src="libraries/p5.dom.js"></script>
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="libraries/render.js"></script>
+</head>
+<body>
+  <div class="example">
+  <pre>
+  <code class="language-javascript">
+  function setup(){
+    createCanvas(500,500);
+  }
+  
+  function draw(){
+  background(255);
+  push();
+  translate(110,110);
+  stroke(0);
+  line(0,-35,0,-65);
+  noStroke();
+  fill(204);
+  ellipse(-17.5, -65,35,35);//left eye dome
+  ellipse(17.5,-65,35,35);//right eye dome
+  arc(0,-65,70,70,0,PI);//chin
+  fill(0);
+  ellipse(-14,-65,8,8);//left eye
+  ellipse(14,-65,8,8);//right eye
+  quad(0,-58,4,-51,0,-44,-4,-51);//beak
+  pop();
+  }
+  </code>
+  </pre>
+  </div>
+
+  <script>renderCode()</script>
+</body>
+</html>
