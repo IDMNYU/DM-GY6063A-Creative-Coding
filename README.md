@@ -134,7 +134,7 @@ beginShape(), endShape(), vertex(), for loop
 
 **Week 5 (2/29):**  Functions, and interaction with the keyboard and mouse.
 - **Reading**: Gettings Started With p5.js, ch.9
-- **Assignment:** Create a Create a character (animal, person, etc.) and make a function that draws the character.  Your character function must have parameters allowing you to draw or animate certain properties.  Some example parameters you might want to create are height, width, positionX, positionY
+- **Assignment:** Create a Create a character (animal, person, etc.) and make a function that draws the character.  Your character function must have parameters allowing you to draw or animate certain properties.  Some example parameters you might want to create are height, width, positionX, positionY.  Also, bring in one example book (either paper or digital) as inspiration for the final project
 
 **Week 6 (3/7):** Transformation and translation.
 - **Reading**: Getting Started With p5.js, ch.6
