@@ -134,7 +134,7 @@ beginShape(), endShape(), vertex(), for loop
 
 **Week 5 (2/29):**  Functions, and interaction with the keyboard and mouse.
 - **Reading**: Gettings Started With p5.js, ch.9
-- **Assignment:** Create a generative tree / shrubbery using beginShape() / endShape() functions.  Try storing the vertex positions in an array so you can redraw the same tree on mouse click.
+- **Assignment:** Create a Create a character (animal, person, etc.) and make a function that draws the character.  Your character function must have parameters allowing you to draw or animate certain properties.  Some example parameters you might want to create are height, width, positionX, positionY
 
 **Week 6 (3/7):** Transformation and translation.
 - **Reading**: Getting Started With p5.js, ch.6
