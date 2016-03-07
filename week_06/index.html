@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 5 interactive examples</title>
+  <link rel="stylesheet" href="">
+  <!-- p5.js library -->
+  <script type="text/javascript" src="libraries/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <script type="text/javascript" src="libraries/p5.sound.js"></script>
+  <script type="text/javascript" src="libraries/p5.dom.js"></script>
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="libraries/render.js"></script>
+  <!-- code highlighting -->
+  <script type="text/javascript" src="libraries/prism.js"></script> 
+  <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
+  <style>
+  
+  .example_container{
+    display: flex;
+    border-bottom:1px dashed black;
+  }
+
+  .cnv_div, .code {
+    margin:0 1rem;
+  }
+
+  section{
+    margin-top:2rem;
+  }
+  canvas {
+    border: 1px solid black;
+  }
+  </style>
+</head>
+<body>
+
+  <h2>Hello translation</h2>
+  <section class="example_container">
+    <div class="code">
+<pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  noStroke();
+  fill(255,0,0);
+  rect(0,0, 200,200);
+  
+  fill(0,255,0);
+  translate(200,200);
+  rect(0,0,200,200);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+<h2>Triangle translation</h2>
+  <section class="example_container">
+    <div class="code">
+<pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400,400); 
+  colorMode(HSB,360,100,100);
+}
+
+function draw(){
+  background(200,100,30);
+  fill(45,76,100);
+  //uncomment this line to see the translation
+  showTranslation();
+  translate(mouseX,mouseY);
+  triangle(-40,0,40,0,0,-40);
+
+}
+
+function showTranslation(){
+  //the translation function
+  text("translate("+mouseX+","+mouseY+")",20,height-40);
+}
+</code>
+</pre>
+</div> 
+</section>
+
+<h2>For loop translation problem</h2>
+  <section class="example_container">
+    <div class="code">
+<pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  noStroke();
+  fill(255,0,0);
+  for(var i=0; i < 4; i++){
+    //there's a problem here.
+    //what do we expect to happen?
+    translate(i*40, 0);
+    rect(0,0,20,20);
+  }
+}
+  </code>
+  </pre>
+  </div>
+  
+</section>
+
+<h2>For loop square translation</h2>
+  <section class="example_container">
+    <div class="code">
+<pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  noStroke();
+  fill(255,0,0);
+  for(var i=0; i < 400; i+=40){
+    push();
+    translate(i, 0);
+    rect(0,0,20,20);
+    pop();
+  }
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+
+  
+<h2>Nested for loop translation</h2>
+  <section class="example_container">
+    <div class="code">
+<pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  noStroke();
+  fill(255,0,0);
+  for(var i=0; i < 400; i+=40){
+    for(var j=0; j < 400; j+=40){
+      push();
+      translate(i, j);
+      rect(0,0,20,20);
+      pop();
+    }
+
+  }
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+
+  <h2>Nested for loop with margins</h2>
+  <section class="example_container">
+    <div class="code">
+<pre>
+<code class="language-javascript">
+var leftMargin = 10;
+var topMargin = 10;
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  noStroke();
+  fill(255,0,0);
+  //we can set a translation before our for loop
+  //to add margin to our drawing
+  translate(leftMargin,topMargin);
+  
+  for(var i=0; i < 400; i+=40){
+    for(var j=0; j < 400; j+=40){
+      push();
+      translate(i, j);
+      rect(0,0,20,20);
+      pop();
+    }
+  }
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+
+  <h2>Owl translation</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400,400); 
+}
+
+function draw(){
+  background(100);
+  translate(50,100);
+  for(var i=0; i < 400; i+=100){
+    for(var j=0; j < 400; j+=100){
+      push();
+      translate(i,j);
+      owl();
+      pop();      
+    }
+  }
+
+}
+function owl(){
+  push();
+  stroke(0);
+  line(0,-35,0,-65);
+  noStroke();
+  fill(204);
+  ellipse(-17.5, -65,35,35);//left eye dome
+  ellipse(17.5,-65,35,35);//right eye dome
+  arc(0,-65,70,70,0,PI);//chin
+  fill(0);
+  ellipse(-14,-65,8,8);//left eye
+  ellipse(14,-65,8,8);//right eye
+  quad(0,-58,4,-51,0,-44,-4,-51);//beak
+  pop();
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  
+<h2>Hello Rotation</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+        <code class="language-javascript">
+function setup(){
+  createCanvas(400, 400);
+  rectMode(CENTER);
+}
+function draw() {
+  var deg = mouseX;
+  var rad = radians(deg);
+
+  background(240);
+  fill(0);
+  text("rotate "+floor(deg)+" degrees", 200, 50);
+  rotate(rad);
+  line(0, 0, 200, 200); 
+  rect(width/2, height/2, 100, 100);
+  
+}
+    </code>
+    </pre>
+    </div>
+    
+</section>
+  <h2>Hello self rotation</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+  rectMode(CENTER);
+}
+
+function draw() {
+  background(220);
+  noStroke();
+  fill(255,0,0);
+  translate(width/2,height/2);
+  rect(0,0,100,100);
+  
+  fill(0,255,0);
+  rotate(PI/4);
+  rect(0,0,100,100);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  <h2>Rotation mouse</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var angle = 0.0;
+
+function setup() {
+  createCanvas(400, 400);
+  rectMode(CENTER);
+}
+
+function draw() {
+  background(220);
+  noStroke();
+  fill(255,0,0);
+  drawRotationAngle();
+  
+  translate(width/2,height/2);
+  rect(0,0,100,100);
+  
+  fill(0,255,0);
+  angle = map(mouseX, 0,width, 0,360);
+  rotate(radians(angle));
+  rect(0,0,100,100);
+  
+  
+}
+
+function drawRotationAngle(){
+  arc(40,height-40,40,40,0,radians(angle));
+  text("angle (degrees): "+ int(angle), 100,height-40);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+<h2>Rotation and translation</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+function setup(){
+  createCanvas(400, 400);
+}
+function draw() {
+  noStroke();
+  fill(0,0,0,2);
+  translate(frameCount % width,frameCount % height);
+  rotate(radians(frameCount));
+  rect(0, 0, 100, 100);
+}
+function mousePressed(){
+  clear();
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+<h2>Rotation in loop</h2>
+<section class="example_container">
+  <div class="code">
+    <pre>
+<code class="language-javascript">
+function setup(){
+  createCanvas(400, 400);
+}
+function draw() {
+  background(200);
+  noStroke();
+  translate(width/2,height/2);
+  fill(0);
+  //the center of rotation
+  ellipse(0,0,10,10);
+  for(var i =0; i < 8; i++){
+    push();
+    //this means that we are dividing 360 degrees into
+    //8 portions
+    rotate(TWO_PI * i / 8);
+    //play around with the first parameter
+    fill(255);
+    ellipse(100,0,40,40);
+    pop();
+  }
+}
+  </code>
+  </pre>
+  </div>
+  
+</section>
+<h2> Double Rotation</h2>
+<section class="example_container">
+  <div class="code">
+    <pre>
+<code class="language-javascript">
+function setup(){
+  createCanvas(400, 400);
+}
+function draw() {
+  background(200);
+  noStroke();
+  translate(width/2,height/2);
+  fill(0);
+  rotate(radians(frameCount%360));
+  for(var i =0; i < 8; i++){
+    push();
+    //this means that we are dividing 360 degrees into
+    //8 portions
+    rotate(TWO_PI * i / 8);
+    //play around with the first parameter
+    fill(255);
+    rect(frameCount % (width/2),0,40,40);
+    pop();
+  }
+}
+  </code>
+  </pre>
+  </div>
+  
+</section>
+
+<h2>Triangle scale</h2>
+<section class="example_container">
+  <div class="code">
+    <pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw(){
+  background(240);
+  
+  translate(width/2, height/2);
+  scale(mouseX / 300, mouseY / 300);
+
+  fill(255, 0, 0);
+  triangle(0, -100, -100, 100, 100, 100);
+}
+  </code>
+  </pre>
+  </div>
+  
+</section>
+
+<h2>Scale 3</h2>
+<section class="example_container">
+  <div class="code">
+    <pre>
+<code class="language-javascript">
+function setup(){
+  createCanvas(400, 400);
+  rectMode(CENTER);
+}
+function draw() {
+  background(200);
+  noStroke();
+  push();
+  scale(0.5);
+  rect(20,width/2,50,50);
+  pop();
+  
+  push();
+  scale(1);
+  rect(100,width/2,50,50);
+  pop();
+  
+  push();
+  scale(2);
+  rect(200,width/2,50,50);
+  pop();
+}
+  </code>
+  </pre>
+  </div>
+  
+</section>
+
+<h2>Scale 3: Translation fix</h2>
+<section class="example_container">
+  <div class="code">
+    <pre>
+<code class="language-javascript">
+function setup(){
+  createCanvas(400, 400);
+  rectMode(CENTER);
+}
+function draw() {
+  background(200);
+  noStroke();
+  push();
+  translate(20,width/2);
+  scale(0.5);
+  rect(0,0,50,50);
+  pop();
+  
+  push();
+  translate(100,width/2);
+  scale(1);
+  rect(0,0,50,50);
+  pop();
+  
+  push();
+  translate(200,width/2);
+  scale(2);
+  rect(0,0,50,50);
+  pop();
+}
+  </code>
+  </pre>
+  </div>
+  
+</section>
+
+<h2>Scale</h2>
+<section class="example_container">
+  <div class="code">
+    <pre>
+<code class="language-javascript">
+function setup(){
+  createCanvas(400, 400);
+  rectMode(CENTER);
+}
+function draw() {
+  background(200);
+  noStroke();
+  for(var i =0; i <= 400; i+=100){
+    push();
+    translate(i,width/2);
+    scale(i / 100);
+    fill(255);
+    rect(0,0,20,20);
+    pop();
+  }
+}
+  </code>
+  </pre>
+  </div>
+  
+</section>
+
+<script> $(document).ready(function() { renderCode(); }); </script>
+</body>
+</html>
