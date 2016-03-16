@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 7 interactive examples</title>
+  <link rel="stylesheet" href="">
+  <!-- p5.js library -->
+  <script type="text/javascript" src="libraries/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <script type="text/javascript" src="libraries/p5.sound.js"></script>
+  <script type="text/javascript" src="libraries/p5.dom.js"></script>
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="libraries/render.js"></script>
+  <!-- code highlighting -->
+  <script type="text/javascript" src="libraries/prism.js"></script> 
+  <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
+  <style>
+  .ex{
+    padding:2rem 0;
+    border-bottom:1px dashed black;
+    max-width: 65rem;
+    margin:0 auto;
+  }
+  .example_container{
+    padding:1rem;
+    display: flex;
+  }
+
+  .cnv_div, .code {
+    margin:0 1rem;
+  }
+
+
+  h2 {
+    padding: 0 2rem;
+  }
+  canvas {
+    border: 1px solid black;
+  }
+  .notes, .challenge {
+    padding: .75rem 2rem;
+  }
+  </style>
+</head>
+<body>
+<section class="ex">
+  <h2>Repetitive motion so far</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+
+<code class="language-javascript">
+var x = 0;
+function setup() {
+  createCanvas(400, 400);
+}
+function draw() {
+  background(220);
+translate(0,height/4);
+  noStroke();
+  fill(255,0,0);
+  rect(x,0, 200,200);
+  x++;
+  x = x % width;
+}
+</code>
+
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: Notice how we use the modulo operator to ramp x from 0 to width over and over. x does not ramp down once it reaches width; it simply starts again from 0.
+  </section>
+</section>
+
+<section class="ex">
+<h2>Bouncing Ball (Linear motion)</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+/**
+* Based on Nature of Code Example 1.1 
+* Bouncing ball with no vectors
+* By Dan Shiffman.  Modified by Kevin Siwoff
+* Fall 2015
+*/
+
+//[full] Variables for location and speed of ball.
+var y = 100;
+var yspeed = 1.0;
+
+function setup() {
+  createCanvas(400,400);
+}
+
+function draw() {
+background(255);
+  //Move the ball up and down according to its speed.
+  y = y + yspeed;
+
+  //Check for bouncing.
+  if ((y > height) || (y < 0)) {
+    //multiplying by -1 reverses direction
+    yspeed = yspeed * -1;
+  }
+
+  ellipse(width/2,y,50,50);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  <section class="notes">
+    Notes: This example shows linear motion because we are changing the position of the ball at a constant speed (1 pixel per frame).  If, instead of increasing position at a constant rate, we were to increase the speed over time, our motion would no longer be linear.  A change in speed over time is also known as acceleration.
+  </section>
+  <section class="challenge">
+    Challenge: Try increasing yspeed at the end of each draw loop with an add-incremend (+=).  How does this affect the animation? 
+  </section>
+</section>
+
+<section class="ex">
+  <h2>Elastic ball (using sin())</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+function setup(){
+  createCanvas(400,400);
+}
+function draw(){
+  background(255);
+  var amplitude = height/2;//play with the amplitude value 
+  var y = sin(radians(frameCount))* amplitude;
+  translate(width/2,height/2);
+  ellipse(0,y,50,50);
+}
+    </code>
+    </pre>
+    </div>
+  </section>
+  <section class="notes">
+    Notes: Here, instead of moving the ball's position linearly, we are moving up and down according to a sine wave.
+  </section>
+  <section class="challenge">
+    Challenge: Try changing the movement from up&down to side to side.
+  </section>
+</section>
+
+<section class="ex">
+  <h2>The math behind the Sine function</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var amplitude = 30.0;
+var angle = 0.0;
+var y2 = 0.0;
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  push();
+  translate(30,height/2);
+  drawRotationAngle();
+  //we map, then constrain the value of our angle between 0 and 360
+  angle = constrain(map(mouseX, 0,width, 0,360), 0, 360);
+  for(var x=1; x < angle; x++){
+      var y1 = sin(radians(x-1)) * amplitude;
+      y2 = sin(radians(x)) * amplitude;
+      stroke(40);
+      line(x-1, y1, x, y2);
+  }
+  pop();
+  
+  drawYCoordLine();
+}
+
+function drawRotationAngle(){
+  noStroke();
+  fill(150);
+  arc(0,0,amplitude*2,amplitude*2,0,radians(angle));
+  fill(100);
+  text("angle (degrees): "+ int(angle), 0,amplitude+25.0);
+}
+
+function drawYCoordLine(){
+  stroke(230,185,0);
+  line(0,height/2 + y2,width,height/2 + y2);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  <section class="notes">
+    Notes: To determine the y position along a sine curve, we need to increase the value of our angle, in radians.  At first the angle measurement may seem confusing- which angle are we referring to, after all?!  Imagine there is a compass attached to the beginning of our sine curve, and when we rotate it clockwise, wherever our pencil has stopped, we draw a horizontal line representing the y-position along our curve.
+  </section>
+</section>
+
+<section class="ex">
+  <h2>ball in motion along a sine wave</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var xspeed = 10.0;
+var x = 0.0;
+ var angle = 0.0;
+function setup(){
+  createCanvas(400,400);
+frameRate(10);
+}
+function draw(){
+  background(255); 
+   translate(0,height/2);
+    var amplitude = height/4;//play with the amplitude value 
+    var y;    
+    if (x === 0){
+      angle = 0;
+    }
+    else {
+      angle +=10.0;
+    }
+y = sin(radians(angle)) * amplitude;
+    fill(100);
+    ellipse(x,y,10,10);
+    x+=10.0;
+    x %= width;
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+</section>
+
+<section class="ex">
+  <h2>Sine wave graphed</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+function setup(){
+  createCanvas(400,400);
+}
+function draw(){
+  background(255);
+  var angle = 0.0;
+  var x = 0.0;
+  translate(0,height/2);
+  while(x < width){
+    var amplitude = height/4;//play with the amplitude value 
+    var y = sin(radians(angle)) * amplitude;
+    fill(100);
+    ellipse(x,y,10,10);
+    x+=10.0;    
+    angle+=10.0;
+  }
+
+}
+    </code>
+    </pre>
+    </div>
+  </section>
+  <section class="notes">
+    Notes: Here we take a snapshot of the ball at each position along the sine wave.
+    What do you notice about the number of circles at the top and bottom poles of the curve?  What does this mean in regards to rising and falling motion?
+  </section>
+  <section class="challenge">
+    Challenge: How might we change the sine curve such that the balls rise and fall more slowly?
+  </section>
+</section>
+
+
+
+<section class="ex">
+  <h2>Same ball in motion defined by the sin() function, no x movement</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var angle = 0.0;
+function setup(){
+  createCanvas(400,400);
+}
+function draw(){
+  background(255); 
+   translate(width/2,height/2);
+    var amplitude = height/4;//play with the amplitude value 
+    var y;
+    angle +=2.0;
+    y = sin(radians(angle)) * amplitude;
+    fill(100);
+    ellipse(0,y,10,10);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  <section class="challenge">
+    Challenge: alter the angle increment value, so that the ball moves up and down faster. 
+  </section>
+</section>
+
+<section class="ex">
+  <h2>Same ball in motion defined by the sin() function, x = y </h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var angle = 0.0;
+function setup(){
+  createCanvas(400,400);
+}
+function draw(){
+  background(255); 
+   translate(width/2,height/2);
+    var amplitude = height/4;//play with the amplitude value 
+    
+    angle +=2.0;
+    var x,y;
+    y=sin(radians(angle)) * amplitude;
+    //try adding an offset to our angle here
+    x=sin(radians(angle)) * amplitude;
+    fill(100);
+    ellipse(x,y,10,10);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  <section class="notes">
+    Continuing from the example above. If x and y are the same value, the ball moves diagonally.   
+  </section>
+  <section class="challenge">
+    Challege: Try offsetting the x angle inside the sin() function.  What do you notice as the angle offset approaches 90.0? 
+  </section>
+</section>
+
+<section class="ex">
+  <h2>Simple Harmonic Motion</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+//period is another way of saying wavelength
+//change the value to change how fast the rectangle animates
+var period = 90.0;
+
+function setup(){
+  createCanvas(400,400);
+}
+function draw(){
+  background(255);
+  fill(0);
+  text("period: " + period, 175,30);
+  translate(width/2, height/2);
+  var amplitude = height/2;//play with the amplitude value 
+  var angle = frameCount / period * TWO_PI;
+  var y = sin(angle)* amplitude;
+
+  fill(245,0,123);
+  ellipse(0,y,40,40);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  <section class="notes">
+    The most important line of this sketch is var angle = frameCount / period * TWO_PI;
+    Consider frameCount as a simple counter, always increasing, at a constant rate.  If the value of period is very small, then the difference (frameCount / period) is a large and increasingly large number.  If the value of period is very large, then the difference is small.  In Math, this is known as being "inversely proportional".  In plain English, if you want the output of sin() to move faster, then you need to have a larger angle increment, and therefore a shorter wavelength (aka, period).     
+  </section>
+</section>
+
+<section class="ex">
+  <h2>What about cosine</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var amplitude = 30.0;
+var angle = 0.0;
+var sinY = 0.0;
+var cosY = 0.0;
+var sinColor, cosColor;
+function setup() {
+  createCanvas(400, 400);
+  colorMode(HSB, 360,100,100);
+  sinColor = color(200,100,45);
+  cosColor = color(45,65,100);
+}
+
+function draw() {
+  background(220,0,95);
+  push();
+  translate(30,height/2);
+  drawRotationAngle();
+  //we map, then constrain the value of our angle between 0 and 360
+  angle = constrain(map(mouseX, 0,width, 0,360), 0, 360);
+  for(var x=1; x < angle; x++){
+      var y1 = sin(radians(x-1)) * amplitude;
+      sinY = sin(radians(x)) * amplitude;
+      stroke(sinColor);
+      line(x-1, y1, x, sinY);
+      
+      var cosy1 = cos(radians(x-1)) * amplitude;
+      cosY = cos(radians(x)) * amplitude;
+      stroke(cosColor);
+      line(x-1, cosy1, x, cosY);
+  }
+  pop();
+  
+  drawYCoordLine(sinY, sinColor);
+  drawYCoordLine(cosY, cosColor);
+}
+
+function drawRotationAngle(){
+  var lighterColor = color(hue(cosColor),
+  saturation(cosColor),
+  brightness(cosColor)+20);
+  fill(lighterColor);  
+  arc(0,0,amplitude*2,amplitude*2,0,radians(angle + 90));
+  
+  lighterColor = color(hue(sinColor),
+  saturation(sinColor),
+  brightness(sinColor) +20);
+  fill(sinColor);
+  arc(0,0,amplitude*2,amplitude*2,0,radians(angle));
+  fill(0,0,65);
+  noStroke();
+  text("angle (degrees): "+ int(angle), 0,amplitude+25.0);
+}
+
+function drawYCoordLine(y, clr){
+  stroke(clr);
+  line(0,height/2 + y,width,height/2 + y);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  <section class="notes">
+    Cosine is similar to sine, but offset by 90 degrees.  Here Sine is represented in blue, while cosine is represented in yellow.  
+  </section>
+</section>
+
+<section class="ex">
+  <h2>modified circle drawing with sine and cosine</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var angle = 0.0;
+function setup(){
+  createCanvas(400,400);
+}
+function draw(){
+  background(255); 
+   translate(width/2,height/2);
+    var amplitude = height/4;//play with the amplitude value 
+    
+    angle +=2.0;
+    var x,y;
+    y=sin(radians(angle)) * amplitude;
+    x=cos(radians(angle)) * amplitude;
+    fill(100);
+    ellipse(x,y,10,10);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  <section class="notes">
+    This example replaces our previous diagonal example with the cos() function.   
+  </section>
+</section>
+
+<section class="ex">
+  <h2>Lissajous Curves</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var waveLengthOne = 125.0;
+var waveLengthTwo = 90.0;
+var pointCount = 0;
+var angle = 0.0;
+var amplitude = 200;
+function setup(){
+  createCanvas(400,400);
+}
+function draw(){
+  if(pointCount > 10000){
+    noLoop();
+  }
+  noFill();
+  strokeWeight(1);
+  stroke(100);
+  translate(width/2, height/2);
+beginShape();
+  for(var i=0; i < pointCount; i++){
+  angle = i / waveLengthOne * TWO_PI;
+  var y = sin(angle)* amplitude;
+  
+  angle = i / waveLengthTwo * TWO_PI;
+  var x = sin(angle)* amplitude;
+  vertex(x,y); 
+  }
+endShape();
+pointCount++;
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  <section class="notes">
+    Now that we're familiar with sine and cosine, as well as harmonic oscillation with varying periods, let's take a look at Lissajous curves!   
+  </section>
+</section>
+
+<script> $(document).ready(function() { renderCode(); }); </script>
+</body>
+</html>
