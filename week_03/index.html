@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 3 interactive examples</title>
+  <link rel="stylesheet" href="">
+  <!-- p5.js library -->
+  <script type="text/javascript" src="libraries/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <script type="text/javascript" src="libraries/p5.sound.js"></script>
+  <script type="text/javascript" src="libraries/p5.dom.js"></script>
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="libraries/render.js"></script>
+  <!-- code highlighting -->
+  <script type="text/javascript" src="libraries/prism.js"></script> 
+  <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
+  <style>
+  .ex{
+    padding:2rem 0;
+    border-bottom:1px dashed black;
+    max-width: 65rem;
+    margin:0 auto;
+  }
+  .example_container{
+    padding:1rem;
+    display: flex;
+  }
+
+  .cnv_div, .code {
+    margin:0 1rem;
+  }
+
+
+  h2 {
+    padding: 0 2rem;
+  }
+  canvas {
+    border: 1px solid black;
+  }
+  .notes, .challenge {
+    padding: .75rem 2rem;
+  }
+  </style>
+</head>
+<body>
+<section class="ex">
+  <h2>While loop</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+function setup(){
+  createCanvas(400,400);
+}
+
+function draw(){
+  var x = 0;
+  var y = 0;
+  background(45,43,100);
+  stroke(255);
+  beginShape(LINES);
+  while(x < width && y < height) {
+      vertex(x,y);
+      x+=10;
+      y+=10;
+  }
+  endShape();
+}
+</code>
+</pre>
+    </div>  
+  </section>
+</section>
+
+<section class="ex">
+<h2>Random while loop</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400,400);
+}
+
+function draw() {
+  var x = 0;
+  var y = 0;
+  
+  background(45,43,100);
+  stroke(255);
+  beginShape(LINES);
+  while(x < width && y < height){
+    vertex(x,y);
+    x+=random(10);
+    y+=random(10);
+  }
+  endShape();
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  
+</section>
+
+<section class="ex">
+  <h2>Simple for loop</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400,400);
+}
+
+function draw() {
+  //we want to draw 10 black rectangles
+  for(var i =0; i < 10; i++){
+    fill(0);
+    rect(i * 40, 0, 10, height);
+    
+  }
+}
+    </code>
+    </pre>
+    </div>
+  </section>
+  
+</section>
+
+<section class="ex">
+  <h2>For loop</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var numCircles = 10;
+
+
+function setup(){
+  createCanvas(400,400);
+  frameRate(2);
+  noStroke();
+}
+
+function draw(){
+  background(255);
+  var circleWidth = 400.0;
+
+  for(var i = 1; i <= numCircles; i++){
+    fill(random(255), random(255), random(255));
+    ellipse(width/2, height/2, circleWidth, circleWidth);
+    circleWidth-=40.0;
+  }
+}
+</code>
+    </pre>
+    </div>
+
+
+  </section>
+  <section class="notes">
+    Notes: Since each call to ellipse draws on top of the previous one, we need to draw smaller circles on each subsequent loop iteration.
+  </section>
+</section>
+
+<section class="ex">
+  <h2>Arrays</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+//declare an empty array variable
+var myCollection = [];
+
+function setup(){
+  createCanvas(400,400);
+  // you can fill the array by referencing the array's
+  // indices
+  for(var i =1; i <= 5; i++){
+    myCollection[i-1] = random(1,5);
+  }
+  
+  //or you can push items onto the array
+  myCollection.push("hello");
+  myCollection.push("world");
+  myCollection.push(3);
+  myCollection.push(2000.2);
+  
+  text(myCollection,0,40);
+
+  //how large is our array?
+  text(myCollection.length, 10,height-30);
+}
+</code>
+    </pre>
+    </div>
+  </section>
+</section>
+
+<section class="ex">
+  <h2>Arrays with numbers</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400,400);
+
+  var evenNumbers = [];
+  for(var i=0; i < 100; i++){
+    evenNumbers[i] = i *2;
+  }
+  text(evenNumbers,0,0);
+  
+  var tenths = [];
+  var number = 0.0;
+  for(var j=0; j < 10; j++){
+    tenths[j] = (number += 0.1);
+  }
+  text(tenths, 0,height/2);
+}
+    </code>
+    </pre>
+    </div>
+  </section>
+  
+</section>
+
+
+
+<section class="ex">
+  <h2>Arrays drawing</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var xPos = [];
+var yPos =[];
+var arraySize = 10;
+function setup() {
+  createCanvas(400,400);
+  for(var i=0; i < arraySize; i++){
+    xPos[i] = random(500.0);
+    yPos[i] = random(500.0);
+  }
+}
+
+function draw() {
+  background(255);
+  for(var i=0; i < xPos.length; i++){
+    fill(255,0,0,50);//r, g, b, a
+    rect(xPos[i], yPos[i], 300, 250);
+  }
+}
+</code>
+    </pre>
+    </div>
+    
+  </section>
+</section>
+
+<section class="ex">
+  <h2>Moire lines</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var theta = 0.0;
+var rectWidthMultiplier = 10;
+var rectHeightMultiplier = 20;
+var rotationSpeed = 0.001;
+function setup() {
+  createCanvas(400,400);
+  rectMode(CENTER);
+}
+
+function draw() {
+  background(255);
+  noFill();
+
+  //stationary rect
+  push();
+  translate(width/2, height/2);
+  for(var i =0; i < 25; i++){
+    rect(0, 0,
+    i*rectWidthMultiplier,
+    i*rectHeightMultiplier);
+  }
+  pop();
+
+  //rotating rect
+  push();
+  translate(width/2, height/2);
+  rotate(theta);
+  for(var i =0; i < 25; i++){
+    rect(0, 0,
+    i*rectWidthMultiplier,
+    i*rectHeightMultiplier);
+  }
+  pop();
+  theta += rotationSpeed;
+}
+</code>
+    </pre>
+    </div>
+    
+  </section>
+</section>
+
+<script> $(document).ready(function() { renderCode(); }); </script>
+</body>
+</html>

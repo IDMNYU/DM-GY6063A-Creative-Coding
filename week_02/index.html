@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 2 interactive examples</title>
+  <link rel="stylesheet" href="">
+  <!-- p5.js library -->
+  <script type="text/javascript" src="libraries/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <script type="text/javascript" src="libraries/p5.sound.js"></script>
+  <script type="text/javascript" src="libraries/p5.dom.js"></script>
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="libraries/render.js"></script>
+  <!-- code highlighting -->
+  <script type="text/javascript" src="libraries/prism.js"></script> 
+  <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
+  <style>
+  .ex{
+    padding:2rem 0;
+    border-bottom:1px dashed black;
+    max-width: 65rem;
+    margin:0 auto;
+  }
+  .example_container{
+    padding:1rem;
+    display: flex;
+  }
+
+  .cnv_div, .code {
+    margin:0 1rem;
+  }
+
+
+  h2 {
+    padding: 0 2rem;
+  }
+  canvas {
+    border: 1px solid black;
+  }
+  .notes, .challenge {
+    padding: .75rem 2rem;
+  }
+  </style>
+</head>
+<body>
+<section class="ex">
+  <h2>Global variables</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+
+<code class="language-javascript">
+var circleWidth;
+
+function setup(){
+  createCanvas(400,400);
+  circleWidth = 5;
+}
+
+function draw(){
+  background(255);
+  
+  fill(0);
+  ellipse(width/2,height/2, circleWidth, 100);
+  
+  circleWidth++;
+}
+</code>
+
+      </pre>
+    </div>  
+  </section>
+
+</section>
+
+<section class="ex">
+  <h2>Expressions</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+//println() is the same as console.log
+function setup() {
+  createCanvas(400,400);
+  println("hello" + " " + "world");
+  console.log("hello" + " " + "world");
+  
+  println(405.23 + 66 + sqrt(64));
+  console.log(405.23 + 66 + sqrt(64));
+  
+  println(64 % 3);
+  console.log(64 % 3);
+  
+  println(64 / 3);
+  console.log(64 / 3);
+}
+    </code>
+    </pre>
+    </div>
+  </section>
+  
+</section>
+
+<section class="ex">
+  <h2>Frame rate</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+/*
+* Frame rate.
+* Frame rate is how many frames per second your app will run.
+* You can set frame rate with the function frameRate(), and get frameRate
+* with the system variable frameRate.
+*/
+function setup(){
+  createCanvas(400,400);
+  frameRate(2);  
+}
+
+function draw(){
+  ellipse(random(0, width), random(0,height),random(255),random(255));
+  println(frameRate());
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  
+</section>
+
+<script> $(document).ready(function() { renderCode(); }); </script>
+</body>
+</html>

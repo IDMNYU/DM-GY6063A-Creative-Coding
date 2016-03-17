@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 4 interactive examples</title>
+  <link rel="stylesheet" href="">
+  <!-- p5.js library -->
+  <script type="text/javascript" src="libraries/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <script type="text/javascript" src="libraries/p5.sound.js"></script>
+  <script type="text/javascript" src="libraries/p5.dom.js"></script>
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="libraries/render.js"></script>
+  <!-- code highlighting -->
+  <script type="text/javascript" src="libraries/prism.js"></script> 
+  <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
+  <style>
+  .ex{
+    padding:2rem 0;
+    border-bottom:1px dashed black;
+    max-width: 65rem;
+    margin:0 auto;
+  }
+  .example_container{
+    padding:1rem;
+    display: flex;
+  }
+
+  .cnv_div, .code {
+    margin:0 1rem;
+  }
+
+
+  h2 {
+    padding: 0 2rem;
+  }
+  canvas {
+    border: 1px solid black;
+  }
+  .notes, .challenge {
+    padding: .75rem 2rem;
+  }
+  </style>
+</head>
+<body>
+<section class="ex">
+  <h2>Additive color</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+
+<code class="language-javascript">
+function setup() {
+  createCanvas(400,400);
+    frameRate(1);
+}
+
+function draw() {
+  background(255);
+  noStroke();
+  //Our first color group
+  //additive color
+  var col1 = color(random(255), random(255), random(255));
+  var col2 = color(random(255), random(255), random(255));
+    
+  fill(col1);
+  rect(0,0,width/2, height/2);
+  
+  fill(col2);
+  rect(width/2,0,width/2, height/2);
+  
+    //combine the rgb components of colors 1 and 2
+  fill(
+    red(col1) + red(col2),
+    green(col1) + green(col2),
+    blue(col1) + blue(col2));
+  rect(0, width/2, width,height/2);
+}
+</code>
+
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    additive color: The top two colors are combined to produce the bottom color
+  </section>
+</section>
+
+<section class="ex">
+<h2>Hello color</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400,400);
+}
+
+function draw() {
+  colorMode(HSB, 360,100,100);
+  rectMode(CENTER);
+  background(mouseY%360, 100,100);
+  noStroke();
+  fill(360-mouseY%360, 100,100);
+  rect(width/2,height/2, mouseX+1,mouseX+1);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+</section>
+
+<!-- <section class="ex">
+  <h2>Color spectrum grid</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var stepX, stepY;
+
+function setup() {
+  createCanvas(400,400);
+}
+
+function draw() {
+  //note: we can define our H,S,&B spectrum maxes
+  //here we set hue max val to width and
+  //sat val to height vars.
+  colorMode(HSB, 360,100,100);
+  stepX = map(mouseX,0,width, 20, 200);
+  stepY = map(mouseY,0, height, 20, 200);
+  background(0);
+  for(var y=0; y < height; y+=stepY){
+    
+    for(var x=0; x < width; x+=stepX){
+      noStroke();
+      fill(x % 360, y % 100, 100);
+      rect(x,y,stepX,stepY);
+    }
+    
+  }
+}
+    </code>
+    </pre>
+    </div>
+  </section>
+  
+</section> -->
+
+<section class="ex">
+  <h2>Color spectrum circle</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+var segmentCount = 24;
+var radius;
+function setup() {
+  createCanvas(400,400);
+    radius = 300;
+}
+
+function draw() {
+  colorMode(HSB, 360,width,height);
+  background('white');
+  //floor is a fancy way of saying,
+  //round downward so that our resulting value is the
+  //nearest whole number
+  var angleStep = floor(360/segmentCount);
+  //there are different drawing modes with beginShape()
+  //to learn more, go to: http://p5js.org/reference/#p5/beginShape
+  beginShape(TRIANGLE_FAN);
+    vertex(width/2,height/2);
+    for(var angle =0; angle <= 360; angle += angleStep){
+      var vx = width/2 + cos(radians(angle))* radius;
+      var vy = height/2 + sin(radians(angle))* radius;
+      vertex(vx, vy);
+      fill(angle, mouseX, mouseY);
+      stroke(angle,mouseX,mouseY);
+    }
+  endShape();
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  
+</section>
+
+<section class="ex">
+  <h2>Rules based color palettes</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+/**
+ * Rules based color palettes
+ * 
+ */
+var h = 100;
+var s = 100;
+var b = 100;
+
+//increase this number for more steps between colors
+var rectStep = 45;
+function setup() {
+  createCanvas(400,400);
+
+}
+
+function draw() {
+  background(255);
+  rectStep = max(45, mouseX);
+  //try uncommenting this line for HSB mode
+  colorMode(HSB, 360,255,255);
+  for(var x=0; x < width; x +=rectStep){
+    for(var y =0; y < height; y+=rectStep){
+    noStroke();
+    fill(h+x % 255,s+x % 255,b+x % 255);
+    rect(x,y,rectStep,rectStep);
+    }
+
+  }
+}
+
+function keyPressed(){
+  if(key === '1'){
+    h = random(360);
+  }
+  else if(key === '2'){
+    s = random(255);
+  }
+  else if(key === '3'){
+    b = random(255);
+  }
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+</section>
+
+<section class="ex">
+  <h2>Simple color interpolation</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+//A simple color interpolation example
+//try changing the colorMode from RGB to HSB
+var colorFrom, colorTo;
+//increase this number for more steps between colors
+var rectStep = 10;
+function setup() {
+  createCanvas(400,400);
+
+  // frameRate(1);
+  noLoop();
+}
+
+function draw() {
+  background(255);
+  //the color we want to start interpolating from
+  colorFrom = color(100,
+  100,
+  100);
+  
+  //the color we want to interpolate to
+  colorTo = color(50,
+  255,
+  255);
+  
+
+  for(var x=0; x < width; x += rectStep){
+    noStroke();
+    //interpolation amount changes each step of our
+    //for loop
+    var lerpAmt = map(x, 0, width, 0, 1.0);
+    
+    var lerpedCol = lerpColor(colorFrom,
+      colorTo,
+      lerpAmt);    
+    fill(lerpedCol);
+    rect(x,0,rectStep,height);
+  }
+}
+    </code>
+    </pre>
+    </div>
+  </section>
+  
+</section>
+
+
+<section class="ex">
+  <h2>Simple analogous color</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400,400);
+  rectMode(CENTER);
+  colorMode(HSB, 360,100,100);
+}
+
+function draw() {
+  //the first color of our pallete
+  var startHue = constrain(map(mouseY, 0, height, 0,360), 0,360);
+  //we map the spread between 0->35 so that colors stay analogous
+  var hueSpread = map(mouseX, 0, width, 0, 35);
+  
+  for(var i =0; i < 4; i++){
+    fill(startHue + (i * hueSpread),
+      100,100);
+    rect(i* 100 + 50,height / 2, 50,50);
+  }
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  
+</section>
+
+<section class="ex">
+  <h2>Color perception darkness/size</h2>
+<section class="example_container">
+  <div class="code">
+<pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400,400);
+    rectMode(CENTER);
+}
+
+function draw() {
+  noStroke();
+  fill(255);
+  rect(width/4,height/2,width/2,height);
+  fill(0);
+  rect(width/4,height/2, 10, 10);
+  
+  fill(0);
+  rect((width*3)/4, height/2,width/2, height);
+  fill(255);
+  rect(width*3/4, height/2, 10,10);
+}
+    </code>
+    </pre>
+    </div>
+    
+  </section>
+  
+</section>
+
+<script> $(document).ready(function() { renderCode(); }); </script>
+</body>
+</html>
