@@ -87,7 +87,7 @@ Course requirements include small weekly projects (studies), a project proposal,
 
 # Final project
 
-For the final project & proposal, students may choose to work individually or in pairs.  If  working as a pair, each student is responsible for 50% of the project.
+Final Project information and planning document: [HERE](https://docs.google.com/document/d/1zgjpMNf9y_yPxFDTq_USR8_ManVNy3Ks00N40gmZcEY/edit#heading=h.8k2zzp3ssm9e)
 
 # Readings
 
