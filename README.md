@@ -138,7 +138,7 @@ beginShape(), endShape(), vertex(), for loop
 
 **Week 6 (3/7):** Transformation and translation.
 - **Reading**: Getting Started With p5.js, ch.6
-- **Assignment:**  
+- **Assignment:** Create a sketch with spiralling shapes.  The sketch can either be animated or static.  You will need to use a combination of rotate and translate in order to spiral the shape.  Once you get the spiraling form, try incorporating an interpolated color pallette using lerpColor(); 
 
 **(3/14): Spring break:** No class. 
 
@@ -146,9 +146,9 @@ beginShape(), endShape(), vertex(), for loop
 
 **Week 7 (3/21):** Harmonic motion and animation.
 - **Reading**: Getting Started With p5.js, ch.8
-- **Assignment:** Redesign the clock.  You must use trigonometry and p5's time functions to design a novel clock.  See week_05->second_clock for inspiration. 
+- **Assignment:** Create a sketch that animates multiple shapes along Lissajous curves.  Try animating color and size properties of the shapes using sin() and cos() as well.
 
-**Week 8 (3/28):** Guest Lecturer. TBD.
+**Week 8 (3/28):** Text and typography
 - **Reading**: TBD
 - **Assignment:** TBD 
 
