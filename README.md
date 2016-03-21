@@ -37,12 +37,13 @@ Students will:
 
 # Course Prerequisites
 
-This class assumes a high degree of computer literacy, but not a high degree of programming ability. We will be learning computer programing in a platform-generic way, however most examples will be demonstrated in the Processing language (Processing.org).  As the course progresses, we will look at a variety of platforms to see which application fits different needs. Having previous coding experience in Java, C++, or Javascript is a plus, but not necessarily a must. 
+This class assumes a high degree of computer literacy, but not a high degree of programming ability. We will be learning computer programing in a platform-generic way, however all examples will be demonstrated in Javascript using the library p5.js (p5js.org).  Having previous coding experience in Javascript, Java, C++, or Python is a plus, but not necessarily a must.
 
 # Course Description
 
-This course is a graduate-level, introductory creative programming course, appropriate for students with no prior programming experience. Traditionally, introductory programming teaches algorithmic problem-solving, where a sequence of instructions describe the steps necessary to achieve a desired result. In Creative Coding, students are trained to go beyond this sequential thinking, to think concurrently and modularly. This course will introduce you to a variety of concepts in programming, and how they can be applied creatively to work in a variety of media.  A strong focus will be on creating interactive experiences that involve a variety of non-traditional user interfaces.  By the end of this course, students will be empowered to write and read code for event-driven, object-oriented, graphical user interfaces, as well as code that produces or reacts to sound and light.
+This course is a graduate-level, introductory creative programming course, appropriate for students with no prior programming experience. Traditionally, introductory programming teaches algorithmic problem-solving, and scalable engineering, where a sequence of instructions describe the steps necessary to achieve a desired result. 
 
+In Creative Coding, students are trained to go beyond sequential problem solving and to use the computer as a creative medium for art, games, and graphic design.  This course will introduce you to a variety of concepts in programming, and how they can be applied creatively to work in a variety of media, such as 2D graphics, animation, image and video processing. A strong focus will be on creating interactive experiences for the web. By the end of this course, students will be empowered to read and write javascript for creative applications, as well as walk away with a midterm and final project.
 Some of the programming environments we will work with include:
 
 ### Core:
@@ -148,7 +149,7 @@ beginShape(), endShape(), vertex(), for loop
 - **Reading**: Getting Started With p5.js, ch.8
 - **Assignment:** Create a sketch that animates multiple shapes along Lissajous curves.  Try animating color and size properties of the shapes using sin() and cos() as well.
 
-**Week 8 (3/28):** Text and typography
+**Week 8 (3/28):** Generative text and typography: An introduction to the RiTa addon for p5.js
 - **Reading**: TBD
 - **Assignment:** TBD 
 
@@ -160,15 +161,15 @@ beginShape(), endShape(), vertex(), for loop
 - **Reading**: TBD
 - **Assignment:** Create a novel single-page website/experience using the p5.js DOM library.
 
-**Week 11 (4/18):** Introduction to 3D programming in p5.js
-- **Reading**: TBD
-- **Assignment:** Project status blog post.  This is a writing assignment, however please include image or video examples of your prototyping work so far.  The content in this post should be similar if not the same as your presentation, however, it should be formated for your blog, instead of a preso file.
+**Week 11 (4/18):** Data Visualization and working with APIs
+- **Reading**: Getting Started with p5.js, ch. 12
+- **Assignment:**
 
-**Week 12 (4/25):** Data.
-- **Reading**: Getting Started With p5.js, ch.12
+**Week 12 (4/25):** Image
+- **Reading**: 
 - **Assignment:** TBD
 
-**Week 13 (5/2):** Media: Video and images. ffmpeg and imagemagick.
+**Week 13 (5/2):** Video, ffmpeg and imagemagick.
 - **Reading**: Getting Started With p5.js, ch.7
 - **Assignments 11&12**: Either or both of:
     + 1. Continue your video project from class using some of the techniques we've discussed in class.  
