@@ -72,7 +72,7 @@ Students in this course will:
 
 # Course Structure
 
-This course will be comprised of 13 weekly classes, 1 final project proposal, and 1 final project. Additionally, there will be small weekly homework assignments, which we will go over and build upon in class. Homework assignments will often be supplemented by reading unless otherwise noted.
+This course will be comprised of 13 weekly classes and 1 final project. Additionally, there will be small weekly homework assignments, which we will go over and build upon in class. Homework assignments will often be supplemented by reading unless otherwise noted.
 
 # Course requirements
 
