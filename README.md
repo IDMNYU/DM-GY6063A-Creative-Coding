@@ -150,8 +150,8 @@ beginShape(), endShape(), vertex(), for loop
 - **Assignment:** Create a sketch that animates multiple shapes along Lissajous curves.  Try animating color and size properties of the shapes using sin() and cos() as well.
 
 **Week 8 (3/28):** Generative text and typography: An introduction to the RiTa addon for p5.js
-- **Reading**: TBD
-- **Assignment:** TBD 
+- **Reading**: [Concerning the Visual in Poetry](http://rwet.decontextualize.com/pdfs/witz71.pdf)
+- **Assignment:** Generative Madlib poetry: Find a prose poetry text from [Wikisource](https://en.wikisource.org/) and replace all nouns and adjectives with random nouns and adjectives.  Try adding a rhymescheme.
 
 **Week 9 (4/4):** Object Oriented Programming
 - **Reading**: Getting Started With p5.js, ch.10
