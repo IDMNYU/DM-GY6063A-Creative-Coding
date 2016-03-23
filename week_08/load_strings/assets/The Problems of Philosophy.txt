@@ -1,0 +1,28 @@
+The Problems of Philosophy Bertrand Russell
+
+PRINTED BY
+
+HAZELL, WATSON AND VINEY, LD.,
+
+LONDON AND AYLESBURY.
+
+
+PREFACE
+
+In the following pages, I have confined myself in the main to those problems of philosophy in regard to which it seemed to me possible to say something positive and constructive, since merely negative criticism seemed out of place. For this reason, theory of knowledge occupies a larger space than metaphysics in the present volume, and some topics much discussed by philosophers are treated very briefly, if at all. \par\pard\plain\hyphpar}{
+
+I have derived valuable assistance from unpublished writings of Mr. G. E. Moore and Mr. J. M. Keynes: from the former, as regards the relations of sense-data to physical objects, and from the latter as regards probability and induction. I have also profited greatly by the criticisms and suggestions of Professor Gilbert Murray.
+
+
+THE PROBLEMS OF PHILOSOPHY
+
+CHAPTER I
+
+APPEARANCE AND REALITY
+
+
+Is there any knowledge in the world which is so certain that no reasonable man could doubt it? This question, which at first sight might not seem difficult, is really one of the most difficult that can be asked. When we have realised the obstacles in the way of a straightforward and confident answer, we shall be well launched on the study of philosophy\u8212?for philosophy is merely the attempt to answer such ultimate questions, not carelessly and dogmatically, as we do in ordinary life and even in the sciences, but critically, after exploring all that makes such questions puzzling, and after realising all the vagueness and confusion that underlie our ordinary ideas. \par\pard\plain\hyphpar}{
+
+In daily life, we assume as certain many things which, on a closer scrutiny, are found to be so full of apparent contradictions that only a great amount of thought enables us to know what it is that we really may believe. In the search for certainty, it is natural to begin with our present experiences, and in some sense, no doubt, knowledge is to be derived from them. But any statement as to what it is that our immediate experiences make us know is very likely to be wrong. It seems to me that I am now sitting in a chair, at a table of a certain shape, on which I see sheets of paper with writing or print. By turning my head I see out of the window buildings and clouds and the sun. I believe that the sun is about ninety-three million miles from the earth; that it is a hot globe many times bigger than the earth; that, owing to the earth's rotation, it rises every morning, and will continue to do so for an indefinite time in the future. I believe that, if any other normal person comes into my room, he will see the same chairs and tables and books and papers as I see, and that the table which I see is the same as the table which I feel pressing against my arm. All this seems to be so evident as to be hardly worth stating, except in answer to a man who doubts whether I know anything. Yet all this may be reasonably doubted, and all of it requires much careful discussion before we can be sure that we have stated it in a form that is wholly true. \par\pard\plain\hyphpar}{
+
+To make our difficulties plain, let us concentrate attention on the table. To the eye it is oblong, brown and shiny, to the touch it is smooth and cool and hard; when I tap it, it gives out a wooden sound. Any one else who sees and feels and hears the table will agree with this description, so that it might seem as if no difficulty would arise; but as soon as we try to be more precise our troubles begin. Although I believe that the table is "really" of the same colour all over, the parts that reflect the light look much brighter than the other parts, and some parts look white because of reflected light. I know that, if I move, the parts that reflect the light will be different, so that the apparent distribution of colours on the table will change. It follows that if several people are looking at the table at the same moment, no two of them will see exactly the same distribution of colours, because no two can see it from exactly the same point of view, and any change in the point of view makes some change in the way the light is reflected.

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 8 interactive examples: Text and typography</title>
+  <link rel="stylesheet" href="">
+  <!-- p5.js library -->
+  <script type="text/javascript" src="libraries/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <script type="text/javascript" src="libraries/p5.sound.js"></script>
+  <script type="text/javascript" src="libraries/p5.dom.js"></script>
+  <script type="text/javascript" src="libraries/rita-full.js"></script>
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="libraries/render.js"></script>
+  <!-- code highlighting -->
+  <script type="text/javascript" src="libraries/prism.js"></script> 
+  <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
+  <style>
+  body{
+    font-size: 16px;
+  }
+  .ex{
+    padding:2rem 0;
+    border-bottom:1px dashed black;
+    max-width: 65rem;
+    margin:0 auto;
+  }
+  .example_container{
+    padding:1rem;
+    display: flex;
+  }
+  .cnv_div, .code {
+    margin:0 1rem;
+  }
+  h1, h2 {
+    padding: 0 2rem;
+  }
+  h1 {
+    font-size: 250%;
+  }
+  canvas {
+    border: 1px solid black;
+  }
+  .notes, .challenge {
+    padding: .75rem 2rem;
+    font-size: 125%;
+  }
+  </style>
+</head>
+<body>
+<section class="ex">
+<h1>Analyzing text</h1>
+  <h2>Hello Rita: Tokens</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+function setup() {
+    createCanvas(400,400);
+    textSize(48);
+    //tokenize splits a string of text
+    //into an array of words and tokens (. , !, ?, etc.)
+    var words = RiTa.tokenize("Got me looking so crazy right now.");
+    //to pull out each word,
+    //we need to loop over the words array
+    for(var i=0; i < words.length; i++){
+      text(words[i], 50, i*48 + 48);
+    }
+    
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: First we tokenize our string of text, then we render each token on a separate line.
+
+    text() takes 3 parameters.  The second and third parameters are width and height of our text box.
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Phonemes</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400,400);
+  textSize(20);
+  // gets the phonemes from a string of text and returns a phonetically spelled string
+  var words = RiTa.getPhonemes("Got me looking so crazy right now.");
+  text(words, 50, 50,300,100);
+  }
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes"></section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>textWidth() : A way of measuring our string widths</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+function setup() {
+  createCanvas(400,400);
+  textSize(20);
+
+  var word = "huge";
+  var wordWidth = textWidth(word);
+  text(word, 50, 50,wordWidth,100);
+  rect(50,75, wordWidth, wordWidth);
+
+  var wordTwo = "huuuuge";
+  var wordTwoWidth = textWidth(wordTwo);
+  text(wordTwo, wordWidth + 75, 50,wordTwoWidth,100);
+  rect(wordWidth + 75, 75, wordTwoWidth, wordTwoWidth);
+
+  var wordThree = "huuuuuuuuge";
+  var wordThreeWidth = textWidth(wordThree);
+  text(wordThree, 220, 50,wordThreeWidth,100);
+  rect(220, 75, wordThreeWidth, wordThreeWidth);    
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    We use the width of the string to determine the width and height of each square.
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Stresses</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var lyricLine = "Thank you very much Mister Robot.";
+var words = [];
+var stresses;
+function setup() {
+    createCanvas(400,400);
+    textSize(20);
+    
+    //get all of the stresses as an array of 1's and 0's where 1 means stressed
+    //and 0 means unstressed
+    stresses = RiTa.getStresses(lyricLine);
+    words = RiTa.tokenize(lyricLine);
+}
+  
+  function draw(){
+    background(255);
+    var wordPos = 0;
+    for(var i=0; i < words.length; i++){
+      text(words[i], wordPos, 0, textWidth(words[i]),20);
+      var wordStresses = RiTa.getStresses(words[i]);
+      text(wordStresses, wordPos, 20, textWidth(words[i]), 20);
+      wordPos += textWidth(words[i])+ 20;
+    }
+  }
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: RiTa.getStresses() takes a word as its only parameter.  Each word is evaluated for stresses, and returns a / (slash) separated list of 1s and 0s. A 1 means there is a stress, a 0 means no stress.  
+  </section>
+  <section class="challenge">
+    Challenge: Try changing the text inside lyricLine to see how it affects the word stresses.
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Parts of speech tags</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+//Couplet by Ezra Pound
+var couplet = "Drawing a sword, cut into water, water again flow: Raise cup, quench sorrow, sorrow again sorry.";
+
+var words = [];
+var partsOfSpeech = [];
+
+function setup() {
+    createCanvas(400,400);
+    textSize(12);
+
+    words = RiTa.tokenize(couplet);
+    partsOfSpeech = RiTa.getPosTags(words);
+}
+  
+  function draw(){
+    background(255);
+    var wordPosX = 0;
+    var wordPosY = width/4;
+
+    for(var i=0; i < words.length; i++){
+      text(words[i], wordPosX, wordPosY, 
+      textWidth(words[i]),20);
+
+      //we check whether each parts of speech exists
+      //in our array
+      if( partsOfSpeech[i] != null){
+        text(partsOfSpeech[i], wordPosX, wordPosY+20, textWidth(words[i]), 20);        
+      }
+
+      wordPosX += textWidth(words[i])+ 20;
+      
+      //if wordPosX goes beyond our width,
+      //move the text down to a new line
+      if(wordPosX > width){
+        wordPosX = 0;
+        wordPosY += 100;
+      }
+    }
+  }
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: <i>A part of speech (abbreviated form: PoS or POS) is a category of words (or, more generally, of lexical items) which have similar grammatical properties. Words that are assigned to the same part of speech generally display similar behavior in terms of syntax—they play similar roles within the grammatical structure of sentences—and sometimes in terms of morphology, in that they undergo inflection for similar properties. Commonly listed English parts of speech are noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, and sometimes numeral, article or determiner.</i> - <a href="https://en.wikipedia.org/wiki/Part_of_speech" target="_blank">Wikipedia</a><br><br>
+    RiTa.getPosTags() returns an array of <a href="http://rednoise.org/rita/reference/PennTags.html" target="_blank">PENN tags</a>. 
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Word count</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var lyricLine = "Thank you very much Mister Robot";
+function setup() {
+    createCanvas(400,400);
+    textSize(20);
+    textAlign(CENTER);
+}
+  
+  function draw(){
+    background(255);
+    text(lyricLine, 0,height/2, width, 20);
+
+    text("number of words: "+ RiTa.getWordCount(lyricLine),
+      0,height/2 + 20,width,20
+    );
+  }
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+
+<section class="ex">
+<h1>Generating text</h1>
+  <h2>Generating random text</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var lexicon;
+function setup() {
+  createCanvas(400, 400);
+  //first create a new RiLexicon
+  lexicon = new RiLexicon();
+  textSize(20);
+  textAlign(CENTER);
+  text("Click for random word", width/2, height/2);
+}
+
+function mousePressed() {
+  background(255);
+  //get a random word from our lexicon object
+  text(lexicon.randomWord(), width/2, height/2);  
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: We can think of RiLexicon() as the entire lexicon of language.  In order to "activate" the lexicon we need to construct it using the new keyword.
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Generating Madlibs</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+/**
+ * by Allison Parrish
+ */
+var lexicon;
+function setup() {
+  createCanvas(400, 400);
+  lexicon = new RiLexicon();
+  background(50);
+  fill(255);
+  noStroke();
+  textSize(32);
+  textAlign(CENTER, CENTER);
+  text("Click for fun", width/2, height/2);
+}
+function draw() {
+}
+function mousePressed() {
+  background(50);
+  textAlign(LEFT, TOP);
+  var output = "April is the " +
+    lexicon.randomWord("jj") + " " + 
+    lexicon.randomWord("nn") + ", " +
+    lexicon.randomWord("vbg") + " " +
+    lexicon.randomWord("nns") + 
+    " out of the " +
+    lexicon.randomWord("jj") + " " +
+    lexicon.randomWord("nn");
+  text(output, 10, 10, width-20, height-20);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+  </section>
+  <section class="notes">
+    Notes: Key to <a href="http://rednoise.org/rita/reference/PennTags.html" target="_blank">PENN tags</a> jj = adjective, nn = noun, vbg = Verb, gerund or present participle, nns = Noun, plural
+  </section>
+  <section class="challenge">
+    Challenge: Try generating random words from other PENN tags.
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Random haiku</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var lexicon;
+function setup() {
+  createCanvas(400, 400);
+  lexicon = new RiLexicon();
+  textSize(20);
+  textAlign(CENTER, CENTER);
+
+  textAlign(LEFT, TOP);
+  generateHaiku();
+}
+
+function mousePressed(){
+  generateHaiku();
+}
+
+function generateHaiku(){
+  var output =
+    //first line, 5 syllables
+    lexicon.randomWord("vb", 1) + " " + 
+    lexicon.randomWord("jj", 2) + " " +
+    lexicon.randomWord("nn", 2) + "\n" +
+
+    //second line, 7 syllables
+    lexicon.randomWord("vbg", 2) + " " +
+    lexicon.randomWord("nn", 2) + " " +
+    lexicon.randomWord("rb", 3) + "\n" +
+    
+    //third line, 5 syllables
+    lexicon.randomWord("nns", 1) + " " +
+    lexicon.randomWord("vbg", 2) + " " +
+    lexicon.randomWord("nn", 2);
+  background(255);
+  text(output, 10, 10, width-20, height-20);
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+  </section>
+  <section class="notes">
+    Notes: By adding a second parameter to randomWord(), we can specify the number of syllables in a given random word.  <a href="https://en.wikipedia.org/wiki/Haiku" target="_blank">Haiku</a>
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>preload() and loading lots of text from a file</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var lines = [];//we declare lines as an empty array 
+//preload gets called BEFORE setup
+function preload(){
+  //loadStrings returns an array of Strings from our text file
+  //you must have a local file in order for this function to work
+  lines = loadStrings('assets/The Problems of Philosophy.txt');
+}
+
+function setup() {
+  createCanvas(400,400);
+  //renders the contents of our lines array
+  text(lines, 0,0,width,height);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: preload() is a p5.js native function made for loading large files and chunks of data.  It's best used with loadStrings().
+
+    If you want to load text from a file, the file needs to be present in your project directory.  In this example, we have a text file that lives inside a directory called "assets".  You can name your files and folders whatever you like!
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>splitting sentences</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var lines = [];//we declare lines as an empty array
+
+//preload gets called BEFORE setup
+function preload(){
+  //loadStrings returns an array of Strings from our text file
+  //you must have a local file in order for this function to work
+  lines = loadStrings('assets/The Problems of Philosophy.txt');
+
+}
+
+function setup() {
+  createCanvas(400,400);
+  //joins an array into a long string
+  //and puts empty space between array elements
+  var linesAsString = lines.join(' ');
+  
+  //in order to split by sentence,
+  //we need to have our lines as a single long string
+  var sentences = RiTa.splitSentences(linesAsString);
+  
+  text('there are ' + sentences.length + ' sentences in this book', 0,10);
+  //loop through each of the sentences
+  //and do something with each of the sentences
+  for(var i=0; i < sentences.length;i++){
+    //your code here
+  }
+  
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: preload() is a p5.js native function made for loading large files and chunks of data.  It's best used with loadStrings() to load a lot of text from a .txt file.
+  </section>
+</section><!-- END EXAMPLE -->
+
+<script> $(document).ready(function() { renderCode(); }); </script>
+</body>
+</html>
