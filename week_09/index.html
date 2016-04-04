@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 9 interactive examples: Objects</title>
+  <link rel="stylesheet" href="">
+  <!-- p5.js library -->
+  <script type="text/javascript" src="libraries/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <script type="text/javascript" src="libraries/p5.sound.js"></script>
+  <script type="text/javascript" src="libraries/p5.dom.js"></script>
+  <script type="text/javascript" src="libraries/rita-full.js"></script>
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="libraries/render.js"></script>
+  <!-- code highlighting -->
+  <script type="text/javascript" src="libraries/prism.js"></script> 
+  <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
+  <style>
+  body{
+    font-size: 16px;
+  }
+  .ex{
+    padding:2rem 0;
+    border-bottom:1px dashed black;
+    max-width: 65rem;
+    margin:0 auto;
+  }
+  .example_container{
+    padding:1rem;
+    display: flex;
+  }
+  .code{
+	max-width:35rem;
+  }
+  .cnv_div, .code {
+    margin:0 1rem;
+  }
+  h1, h2 {
+    padding: 0 2rem;
+  }
+  h1 {
+    font-size: 250%;
+  }
+  canvas {
+    border: 1px solid black;
+  }
+  .notes, .challenge {
+    padding: .75rem 2rem;
+    font-size: 125%;
+  }
+  </style>
+</head>
+<body>
+
+  <section class="ex">
+  <h2>Object Literal: Simple particle</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+//our Particle Object
+var Particle = {
+  size   : 100,
+  name    : "astroid",
+  color   : "red"
+};
+///////////////////
+function setup() {
+  createCanvas(400,400);
+  //we assign the data of our Particle object
+  //to a local variable called particle
+  var particle = Particle;
+
+  fill(particle.color);
+  noStroke();
+  ellipse(width/2,height/2, particle.size,particle.size);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  text(particle.name, width/2, height/2);
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="challenge">
+    Challenge 1: create 3 instances of our Particle object, distributing each evenly across the canvas.
+  </section>
+  <section class="challenge">
+    Challenge 2: Change the color of each particle instance.
+  </section>
+</section><!-- END EXAMPLE -->
+
+
+<section class="ex">
+  <h2>Object Literal: Cat object</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+////////////////////
+// This is an Object Literal
+// Object literals are Objects defined within 
+// curly brackets like : { }
+/////////////////////
+var Cat = {
+  color: "brown",
+  greeting: "purr!",
+  
+  sayHello : function(){
+    return this.greeting;
+  } 
+};
+function setup() {
+ //since Cat does not have a constructor
+ //function, we can create Cat instance like this.
+ var myCat = Cat;
+ createCanvas(400,400);
+ textAlign(CENTER);
+ text(myCat.sayHello(), width/2, height/2);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Object Function: Particle</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+/////////////////////////////
+// Object constructor!
+/////////////////////////////
+function Particle(pos) {
+  this.speed   = 10;
+  this.name    =  "astroid";
+  this.color   = "red";
+  this.pos     = pos;//pos is a p5.Vector
+}
+
+// here's where we define our methods
+// aka. the stuff the Object does
+Particle.prototype = {
+  constructor : Particle,
+  bounce : function(){
+    // if particle position has gone outside the boundary
+    // of our canvas.  reverse speed!
+    if (this.pos.y > height || this.pos.y < 0){
+      this.speed *= -1;
+    }
+    //add speed to our our particle position
+    this.pos.add(new p5.Vector(0,this.speed));
+  }
+  
+};
+
+var particle;
+function setup() {
+  createCanvas(400,400);
+  particle = new Particle(createVector(width/2, height/2));
+}
+
+function draw() {
+  background(255);
+  fill(particle.color);
+  noStroke();
+  ellipse(particle.pos.x,particle.pos.y, 100, 100);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  text(particle.name, particle.pos.x, particle.pos.y);
+  particle.bounce();
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+<script> $(document).ready(function() { renderCode(); }); </script>
+</body>
+</html>
