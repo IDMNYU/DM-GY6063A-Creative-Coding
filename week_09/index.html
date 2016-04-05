@@ -183,6 +183,201 @@ function draw() {
     </div>  
   </section>
 </section><!-- END EXAMPLE -->
+<section class="ex">
+  <h2>Object Function: Particle</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+/////////////////////////////
+// Object constructor!
+/////////////////////////////
+function Particle(pos) {
+  this.speed   = 2;
+  this.name    =  "astroid";
+  this.color   = "blue";
+  this.pos     = pos;//pos is a p5.Vector
+}
+
+// here's where we define our methods
+// aka. the stuff the Object does
+Particle.prototype = {
+  constructor : Particle,
+  bounce : function(){
+    // if particle position has gone outside the boundary
+    // of our canvas.  reverse speed!
+    if (this.pos.y > height || this.pos.y < 0){
+      this.speed *= -1;
+    }
+    //add speed to our our particle position
+    this.pos.add(new p5.Vector(0,this.speed));
+  },
+  //method to change our Object name
+  changeName : function(){
+    this.name = "circle";
+  }
+  
+};
+
+var particle;
+function setup() {
+  createCanvas(400,400);
+  particle = new Particle(createVector(width/2, height/2));
+}
+
+function draw() {
+  background(255);
+  fill(particle.color);
+  noStroke();
+  ellipse(particle.pos.x,particle.pos.y, 100, 100);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  particle.changeName();
+  text(particle.name, particle.pos.x, particle.pos.y);
+  particle.bounce();
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Object Function: Multi Particles</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+/////////////////////////////
+// Object constructor!
+/////////////////////////////
+function Particle(pos) {
+  this.speed   = 2;
+  this.name    =  "astroid";
+  this.color   = "blue";
+  this.pos     = pos;//pos is a p5.Vector
+}
+
+// here's where we define our methods
+// aka. the stuff the Object does
+Particle.prototype = {
+  constructor : Particle,
+  bounce : function(){
+    // if particle position has gone outside the boundary
+    // of our canvas.  reverse speed!
+    if (this.pos.y > height || this.pos.y < 0){
+      this.speed *= -1;
+    }
+    //add speed to our our particle position
+    this.pos.add(new p5.Vector(0,this.speed));
+  },
+  changeName : function(){
+    this.name = "circle";
+  }
+  
+};
+
+var particle, particleTwo;
+
+function setup() {
+  createCanvas(400,400);
+  particle = new Particle(createVector(width/2, height/2));
+  particleTwo = new Particle(createVector(width/4, height/2))
+}
+
+function draw() {
+  background(255);
+  fill(particle.color);
+  noStroke();
+  ellipse(particle.pos.x,particle.pos.y, 100, 100);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  particle.changeName();
+  text(particle.name, particle.pos.x, particle.pos.y);
+  particle.bounce();
+
+  fill(particleTwo.color);
+  noStroke();
+  ellipse(particleTwo.pos.x,particleTwo.pos.y, 100, 100);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  text(particleTwo.name, particleTwo.pos.x, particleTwo.pos.y);
+  particleTwo.bounce();
+
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+
+<section class="ex">
+  <h2>Object Function: Particle with constructor</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+/////////////////////////////
+// Object constructor!
+/////////////////////////////
+function Particle(posY) {
+  this.speed   = 2;
+  this.name    =  "astroid";
+  this.color   = "blue";
+  this.posY     = posY;
+}
+
+// here's where we define our methods
+// aka. the stuff the Object does
+Particle.prototype = {
+  constructor : Particle,
+  bounce : function(){
+    // if particle position has gone outside the boundary
+    // of our canvas.  reverse speed!
+    if (this.posY > height || this.posY < 0){
+      this.speed *= -1;
+    }
+    //add speed to our our particle position
+    this.posY = this.posY + this.speed;
+  },
+  changeName : function(){
+    this.name = "circle";
+  }
+  
+};
+
+var particle;
+
+function setup() {
+  createCanvas(400,400);
+  particle = new Particle(height/2);
+}
+
+function draw() {
+  background(255);
+  fill(particle.color);
+  noStroke();
+  ellipse(width/2,particle.posY, 100, 100);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  particle.changeName();
+  text(particle.name, width/2, particle.posY);
+  particle.bounce();
+
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
 
 <script> $(document).ready(function() { renderCode(); }); </script>
 </body>
