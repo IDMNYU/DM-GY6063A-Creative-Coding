@@ -155,11 +155,11 @@ beginShape(), endShape(), vertex(), for loop
 
 **Week 9 (4/4):** Object Oriented Programming
 - **Reading**: Getting Started With p5.js, ch.10
-- **Assignment:** TBD
+- **Assignment:** Create a Particle System using Javascript Objects.  Particles can be any size or shape you want.
 
 **Week 10 (4/11):** The Document Object Model (DOM).
 - **Reading**: TBD
-- **Assignment:** Create a novel single-page website/experience using the p5.js DOM library.
+- **Assignment:** Create a user interface for your canvas sketch using the DOM library.  The interface should control parameters in the sketch.  Some possible examples of parameters are size, color, animation speed, etc.
 
 **Week 11 (4/18):** Data Visualization and working with APIs
 - **Reading**: Getting Started with p5.js, ch. 12
