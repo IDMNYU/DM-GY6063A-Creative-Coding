@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 9 interactive examples: Objects</title>
+  <link rel="stylesheet" href="">
+  <!-- p5.js library -->
+  <script type="text/javascript" src="libraries/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <script type="text/javascript" src="libraries/p5.sound.js"></script>
+  <script type="text/javascript" src="libraries/p5.dom.js"></script>
+  <script type="text/javascript" src="libraries/rita-full.js"></script>
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script src="libraries/iframeResizer.min.js" type="text/javascript"></script> 
+  <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
+  <style>
+  body{
+    font-size: 16px;
+  }
+  .ex{
+    padding:2rem 0;
+    border-bottom:1px dashed black;
+    max-width: 65rem;
+    margin:0 auto;
+  }
+  .example_container{
+    padding:1rem;
+    display: flex;
+  }
+  .example_container .code, .example_container iframe{
+    min-height: 400px;
+    max-height: 600px;
+  }
+  iframe {
+    width:100%;
+  }
+  .code {
+    min-width: 400px;
+    max-width: 600px;
+  }
+  .cnv_div, .code {
+    margin:0 1rem;
+  }
+  h1, h2 {
+    padding: 0 2rem;
+  }
+  h1 {
+    font-size: 250%;
+  }
+  canvas {
+    border: 1px solid black;
+  }
+  .notes, .challenge {
+    padding: .75rem 2rem;
+    font-size: 125%;
+  }
+  </style>
+</head>
+<body>
+
+  <section class="ex">
+  <h2>Creating HTML elements</h2>
+  <section class="example_container">
+     <iframe src="https://thimbleprojects.org/kevinsiwoff/51076" frameborder="0"></iframe>
+  </section>
+  <section class="challenge">
+    Challenge: Use createElement() to create the more specific HTML elements from above.
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Positioning HTML elements</h2>
+  <section class="example_container">
+     <iframe src="https://thimbleprojects.org/kevinsiwoff/51102" frameborder="0"></iframe>
+  </section>
+  <section class="challenge">
+    Challenge: Position multiple HTML elements around a circle.
+  </section>
+  <section class="challenge">Hint: you will need to use sin() and cos() in order to determine each x & y values. Remember that x = cos(theta)* radius, and y = sin(theta)* radius</section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Changing inner HTML inside our draw loop</h2>
+  <section class="example_container">
+     <iframe src="https://thimbleprojects.org/kevinsiwoff/51121" frameborder="0"></iframe>
+  </section>
+  <section class="notes">
+    Notes: Yes, this is potentially one answer to the challenge above.  Try not to peek at the code unless your absolutely stumped with the above challenge.
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>DOM events</h2>
+  <section class="example_container">
+     <iframe src="https://thimbleprojects.org/kevinsiwoff/51131/" frameborder="0"></iframe>
+  </section>
+  <section class="notes">
+    Just like our canvas can respond to events, so too can DOM elements.  Assigning functions on events are called callback functions.
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Input event handling</h2>
+  <section class="example_container">
+     <iframe src="https://thimbleprojects.org/kevinsiwoff/51152/" frameborder="0"></iframe>
+  </section>
+</section><!-- END EXAMPLE -->
+
+</body>
+</html>
