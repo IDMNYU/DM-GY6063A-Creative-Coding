@@ -44,6 +44,7 @@ This class assumes a high degree of computer literacy, but not a high degree of 
 This course is a graduate-level, introductory creative programming course, appropriate for students with no prior programming experience. Traditionally, introductory programming teaches algorithmic problem-solving, and scalable engineering, where a sequence of instructions describe the steps necessary to achieve a desired result. 
 
 In Creative Coding, students are trained to go beyond sequential problem solving and to use the computer as a creative medium for art, games, and graphic design.  This course will introduce you to a variety of concepts in programming, and how they can be applied creatively to work in a variety of media, such as 2D graphics, animation, image and video processing. A strong focus will be on creating interactive experiences for the web. By the end of this course, students will be empowered to read and write javascript for creative applications, as well as walk away with a midterm and final project.
+
 Some of the programming environments we will work with include:
 
 ### Core:
@@ -61,14 +62,10 @@ Some of the programming environments we will work with include:
 Students in this course will:
 
 * Understand the basics of creative coding in Javascript (p5.js).
-
 * Apply their understanding of digital media to software.
-
-* Learn best practices for designing software within an event-driven, object-oriented, real time framework.
-
-* Experiment with different techniques for user input and output, including sensors and non-traditional screens.
-
+* Learn best practices for designing software within an event-driven, object-oriented and functional framework.
 * Propose and develop a complete software experience as a final project.
+
 
 # Course Structure
 
@@ -80,7 +77,7 @@ Course requirements include small weekly projects (studies), a project proposal,
 
 * Attendance and participation (25%). More than three unexcused absences will result in a decreased letter grade.
 
-* Weekly homework studies (submit 12) (30%).  
+* Weekly homework studies (submit 10) (30%).  
 
 * IDM coursework documentation blog on Tumblr (20%). See documentation section for more info on blog requirements.
 
@@ -158,23 +155,21 @@ beginShape(), endShape(), vertex(), for loop
 - **Assignment:** Create a Particle System using Javascript Objects.  Particles can be any size or shape you want.
 
 **Week 10 (4/11):** The Document Object Model (DOM).
-- **Reading**: TBD
+- **Reading**: Getting Started With p5.js, pg206-210
 - **Assignment:** Create a user interface for your canvas sketch using the DOM library.  The interface should control parameters in the sketch.  Some possible examples of parameters are size, color, animation speed, etc.
 
-**Week 11 (4/18):** Data Visualization and working with APIs
-- **Reading**: Getting Started with p5.js, ch. 12
-- **Assignment:**
+**Week 11 (4/18):** Data Visualization
+- **Reading**: Getting Started with p5.js, ch. 12; Judith Donath et al. [“Data portraits“](http://smg.media.mit.edu/papers/Donath/DataPortraits.Siggraph.final.graphics.pdf). Proceedings of SIGGRAPH 2010, Pages 375-383.
+
+- **Assignment:** Inspired by [Dear Data](http://www.dear-data.com/), record 5 days of data from your life and visualize the data using p5.js.  See class notes for how to structure your data. 
 
 **Week 12 (4/25):** Image
-- **Reading**: 
-- **Assignment:** TBD
+- **Reading**: Getting Started With p5.js, ch.7
+- **Assignment:** Work on Final Projects.
 
 **Week 13 (5/2):** Video, ffmpeg and imagemagick.
-- **Reading**: Getting Started With p5.js, ch.7
-- **Assignments 11&12**: Either or both of:
-    + 1. Continue your video project from class using some of the techniques we've discussed in class.  
-    + 2. Create a Sprite Animation or simple single-player game using images in p5.
-- **Alt assignment** : Take an existing sketch and refactor/tweak it to use javascript objects instead of multi-line function calls.
+- **Reading**: No Reading this week.
+- **Assignment**: Work on Final Projects.
 
 **Week 14 (5/9):** Final Project Presentations.  All homework assignments due
 
