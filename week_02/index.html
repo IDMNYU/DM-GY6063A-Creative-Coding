@@ -5,16 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Week 2 interactive examples</title>
   <link rel="stylesheet" href="">
-  <!-- p5.js library -->
-  <script type="text/javascript" src="libraries/p5.js"></script>
-  <!-- optional addons for sound/dom examples -->
-  <script type="text/javascript" src="libraries/p5.sound.js"></script>
-  <script type="text/javascript" src="libraries/p5.dom.js"></script>
   <!-- scripts for rendering -->
   <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
-  <script type="text/javascript" src="libraries/render.js"></script>
-  <!-- code highlighting -->
-  <script type="text/javascript" src="libraries/prism.js"></script> 
+  <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
   <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
   <style>
   .ex{
@@ -25,20 +19,19 @@
   }
   .example_container{
     padding:1rem;
-    display: flex;
+    width:100%;
   }
 
-  .cnv_div, .code {
+  .cnv_div, .script {
     margin:0 1rem;
+    width:100%;
   }
 
 
   h2 {
     padding: 0 2rem;
   }
-  canvas {
-    border: 1px solid black;
-  }
+
   .notes, .challenge {
     padding: .75rem 2rem;
   }
@@ -48,10 +41,10 @@
 <section class="ex">
   <h2>Global variables</h2>
   <section class="example_container">
-    <div class="code">
-      <pre>
+    <div class="script">
+      
 
-<code class="language-javascript">
+<script class="language-javascript" type="text/p5">
 var circleWidth;
 
 function setup(){
@@ -67,9 +60,9 @@ function draw(){
   
   circleWidth++;
 }
-</code>
+</script>
 
-      </pre>
+      
     </div>  
   </section>
 
@@ -78,9 +71,9 @@ function draw(){
 <section class="ex">
   <h2>Expressions</h2>
 <section class="example_container">
-  <div class="code">
-<pre>
-<code class="language-javascript">
+  <div class="script">
+
+<script class="language-javascript" type="text/p5">
 //println() is the same as console.log
 function setup() {
   createCanvas(400,400);
@@ -96,8 +89,8 @@ function setup() {
   println(64 / 3);
   console.log(64 / 3);
 }
-    </code>
-    </pre>
+    </script>
+    
     </div>
   </section>
   
@@ -106,9 +99,9 @@ function setup() {
 <section class="ex">
   <h2>Frame rate</h2>
 <section class="example_container">
-  <div class="code">
-<pre>
-<code class="language-javascript">
+  <div class="script">
+
+<script class="language-javascript" type="text/p5">
 /*
 * Frame rate.
 * Frame rate is how many frames per second your app will run.
@@ -124,14 +117,12 @@ function draw(){
   ellipse(random(0, width), random(0,height),random(255),random(255));
   println(frameRate());
 }
-    </code>
-    </pre>
+    </script>
+    
     </div>
     
   </section>
   
 </section>
-
-<script> $(document).ready(function() { renderCode(); }); </script>
 </body>
 </html>
