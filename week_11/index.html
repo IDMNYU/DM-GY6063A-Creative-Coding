@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 11 Interactive examples</title>
+  <link rel="stylesheet" href="">
+  <!-- d3.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+  <!-- p5.js library -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="libraries/render.js"></script>
+  <!-- code highlighting -->
+  <script type="text/javascript" src="libraries/prism.js"></script> 
+  <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
+  <style>
+  body{
+    font-size: 16px;
+  }
+  .ex{
+    padding:2rem 0;
+    border-bottom:1px dashed black;
+    max-width: 65rem;
+    margin:0 auto;
+  }
+  .example_container{
+    /*padding:1rem;*/
+    display: flex;
+  }
+  .code{
+  max-width:53%;
+  }
+  .cnv_div, .code {
+    margin:0 1rem;
+  }
+  .cnv_div {
+    overflow: scroll;
+  }
+  h1, h2 {
+    padding: 0 2rem;
+  }
+  h1 {
+    font-size: 250%;
+  }
+  canvas {
+    border: 1px solid black;
+  }
+  .notes, .challenge {
+    padding: .75rem 2rem;
+    font-size: 125%;
+  }
+  </style>
+</head>
+<body>
+
+  <section class="ex">
+  <h2>Concept review: mapping data values</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+
+function setup() {
+  createCanvas(400,400);
+  textAlign(CENTER);
+}
+function draw(){
+  background(255);
+  var mappedMouseX = map(mouseX, 0, width, 0, 1);
+  text("mapped Mouse X: "+mappedMouseX,
+    width/2, height/2);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: here we map our mouseX number value between 0 and 1.
+    This mapping technique is called <a href="https://p5js.org/reference/#p5/norm" target="_blank">normalization</a>.
+  </section>
+</section><!-- END EXAMPLE -->
+
+  <section class="ex">
+  <h2>Concept review: Looping through array data</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var data = [
+  2,
+  3,
+  6,
+  1.2,
+  4,
+  4.5,
+  5.5
+];
+
+function setup() {
+  createCanvas(400,400);
+  translate(0,width/2);
+  for(var i =0; i < data.length; i++){
+    translate(50,0);
+    //we map our data range
+    var mappedDataElement = map(data[i], 1.2,6,10,45);
+    //use the mapped value as our width&height
+    ellipse(0,0,mappedDataElement, mappedDataElement);
+  }
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+  </section>
+</section><!-- END EXAMPLE -->
+
+  <section class="ex">
+  <h2>loadTable()</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var table;
+function preload() {
+  //my table is comma separated value "csv"
+  //and has a header specifying the columns labels
+  table = loadTable("data/antarctica_weather_averages.csv", "csv", "header");
+}
+function setup() {
+  createCanvas(400,400);
+  textSize(24);
+  //count the rows
+  text(table.getRowCount() + " total rows in table", 10,height/2);
+  //count the cols 
+  text(table.getColumnCount() + " total columns in table", 10,height/2+24);
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: Download the data as csv file <a href="/data/antarctica_weather_averages.csv">HERE</a>
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>table.getColumn()</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var table;
+var mayTemperatureData = [];
+function preload() {
+  //my table is comma separated value "csv"
+  //and has a header specifying the columns labels
+  table = loadTable("data/antarctica_weather_averages.csv", "csv", "header");
+}
+function setup() {
+  createCanvas(400,400);
+  textSize(24);
+  mayTemperatureData = table.getColumn("MAY");
+}
+
+function draw(){
+  background(255);
+  translate(0,height/2);
+  for(var i = 0; i < mayTemperatureData.length; i++){
+    //move each rectangle horizontally with translate
+    translate(45,0);
+    push();
+
+    rect(0,0,40,mayTemperatureData[i] * 10.0);
+    pop();
+
+  }
+    
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: Download the data as csv file <a href="/data/antarctica_weather_averages.csv">HERE</a>
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>table.getRow()</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var table;
+var aveTemperatureData = [];
+function preload() {
+  //my table is comma separated value "csv"
+  //and has a header specifying the columns labels
+  table = loadTable("data/antarctica_weather_averages.csv", "csv", "header");
+}
+function setup() {
+  createCanvas(400,400);
+  textSize(24);
+  //VERY IMPORTANT: to get row as array, we need to call
+  //getRow(rowNumber).arr; // <--no parens
+  aveTemperatureData = table.getRow(2).arr;
+}
+
+function draw(){
+  background(255);
+  translate(0,height/2);
+  //we loop from i=2 to aveTemperatureData.length-2
+  //because our row contains more data than just monthly
+  //temps
+  for(var i = 2; i < aveTemperatureData.length-2; i++){
+    translate(25,0);
+    push();
+    rect(0,0,20,aveTemperatureData[i] * 5.0);
+    pop();
+
+  } 
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: Download the data as csv file <a href="/data/antarctica_weather_averages.csv">HERE</a>
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Cycling through every cell of our table</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var table;
+var aveTemperatureData = [];
+
+function preload() {
+  //my table is comma separated value "csv"
+  //and has a header specifying the columns labels
+  table = loadTable("data/antarctica_weather_averages.csv", "csv", "header");
+}
+function setup() {
+  createCanvas(600,200);
+  textSize(8);
+}
+
+function draw(){
+  background(255);
+  translate(20,20);
+  //nested for loop
+  //the inner loop is by rowCount so that we move
+  //downward, then from left to right
+  for(var c =0; c < table.getColumnCount(); c++){
+    for(var r =0; r < table.getRowCount(); r++){
+      push();  
+      var cellData = table.getString(r, c);
+      if(cellData != undefined){
+        if(c < 1){
+          translate(0, r * 20);
+        }
+        else {
+          translate( (c * 25) + 150, r * 20);
+        }
+        text(cellData , 0,0 );
+      }
+      pop();
+    }
+  }
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: Download the data as csv file <a href="/data/antarctica_weather_averages.csv">HERE</a>
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>loadJSON</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+  var data;
+function preload() {
+  var url = 'http://jsonplaceholder.typicode.com/posts';
+  data = loadJSON(url);
+}
+
+function setup() {
+  createCanvas(400,400);
+  noLoop();
+}
+
+function draw() {
+  background(200);
+  println(data);
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Data concept: array subset</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var data = [
+  2,
+  3,
+  6,
+  1.2,
+  4,
+  4.5,
+  5.5
+];
+
+function setup() {
+  createCanvas(400,400);
+  translate(0,width/2);
+  textSize(20);
+  //let's say we only want to work with
+  //indices 2 - 4
+  var dataSubset = subset(data, 2, 2);
+  //will render 6 and 1.2
+  for(var i =0; i < dataSubset.length; i++){
+    text(dataSubset[i], 20, i * 20);
+  }
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="challenge">
+    Challenge: Create another subset of the data array, and visualize the subset as ellipse bubbles
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>p5.js + d3.js</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+  /**
+   * based on http://sciutoalex.github.io/p5-D3-cookbook/
+   */
+var table;
+function preload(){
+  //my table is comma separated value "csv"
+  //and has a header specifying the columns labels
+  table = loadTable("data/antarctica_weather_averages.csv", "csv", "header");  
+}
+
+function setup() {
+  var margin = 30; 
+  var c = createCanvas(400, 400);
+  var canvas = c.canvas;
+
+  push();
+  translate(margin,margin);
+  
+  var aveTemperatureData = subset(table.getRow(2).arr, 1, table.getRow(2).arr.length - 4);
+  
+  // this is a function stored in a variable!
+  var lineGeneratorLinear = d3.svg.line()
+    .x(function(data,index) { return map(index,0,12,0,width-margin*2); })
+    .y(function(data,index) { return map(data,-24,24,0,height-margin*2); })
+    .interpolate('linear');//<--test other interpolation methods
+  
+  strokeWeight(3);
+  stroke('#033E8C');
+  var cPathLinear = new Path2D(lineGeneratorLinear(aveTemperatureData));
+  canvas.getContext('2d').stroke(cPathLinear);
+  fill(255);
+  stroke(0);
+  strokeWeight(1);
+  for(var i = 0; i < aveTemperatureData.length; i++) {
+    ellipse(map(i,0,12,0,width-margin*2),map(aveTemperatureData[i],-24,24,0,height-margin*2), 10, 10)
+  }
+     
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="notes">
+    Notes: d3 Interpolation methods can be found <a href="https://github.com/mbostock/d3/wiki/SVG-Shapes#line_interpolate" target="_blank">HERE</a>
+  </section>
+</section><!-- END EXAMPLE -->
+
+<script> $(document).ready(function() { renderCode(); }); </script>
+</body>
+</html>
+
+
