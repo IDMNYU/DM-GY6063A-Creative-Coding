@@ -289,6 +289,46 @@ function draw(){
   </section>
 </section><!-- END EXAMPLE -->
 
+<!-- var table;
+var aveTemperatureData = [];
+
+function preload() {
+  //my table is comma separated value "csv"
+  //and has a header specifying the columns labels
+  table = loadTable("data/antarctica_weather_averages.csv", "csv", "header");
+}
+function setup() {
+  createCanvas(600,200);
+  textSize(8);
+}
+
+function draw(){
+  background(255);
+  translate(20,20);
+  //nested for loop
+  //the inner loop is by rowCount so that we move
+  //downward, then from left to right
+  for(var c =0; c < table.getColumnCount(); c++){
+    for(var r =0; r < table.getRowCount(); r++){
+      push();  
+      var cellData = table.getString(r, c);
+      if(cellData != undefined){
+        if(c < 1){
+          translate(0, r * 20);
+           text(cellData , 0,0 );
+        }
+        else {
+          translate( (c * 25) + 150, r * 20);
+           ellipse(0,0,cellData, cellData );
+        }
+       
+      }
+      pop();
+    }
+  }
+} -->
+
+
 <section class="ex">
   <h2>loadXML</h2>
   <section class="example_container">
