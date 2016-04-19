@@ -364,8 +364,7 @@ function draw() {
 <code class="language-javascript">
   var data;
 function preload() {
-  var url = 'http://jsonplaceholder.typicode.com/posts';
-  data = loadJSON(url);
+  data = loadJSON('data/antarctica_weather_averages.json');
 }
 
 function setup() {
@@ -376,6 +375,19 @@ function setup() {
 function draw() {
   background(200);
   println(data);
+}
+
+// A callback function for parsing json 
+function parseJsonResponse(json) {
+  for(var obj in json ) {
+    if (json.hasOwnProperty(obj)) {
+    
+      var data = json[obj];
+    
+      //have fun with your data object here.
+    
+    }
+  }
 }
 
 </code>
