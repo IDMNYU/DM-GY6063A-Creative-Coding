@@ -290,6 +290,33 @@ function draw(){
 </section><!-- END EXAMPLE -->
 
 <section class="ex">
+  <h2>loadXML</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+  var data;
+function preload() {
+  data = loadXML("data/antarctica_weather_averages.xml");
+}
+
+function setup() {
+  createCanvas(400,400);
+  noLoop();
+}
+
+function draw() {
+  background(200);
+  println(data);
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
   <h2>loadJSON</h2>
   <section class="example_container">
     <div class="code">
@@ -316,6 +343,32 @@ function draw() {
     </div>  
   </section>
 </section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>looping through JSON data</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+// A callback function for parsing json 
+function parseJsonResponse(json) {
+  for(var obj in json ) {
+    if (json.hasOwnProperty(obj)) {
+    
+      var data = json[obj];
+    
+      //have fun with your data object here.
+    
+    }
+  }
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+
 
 <section class="ex">
   <h2>Data concept: array subset</h2>
