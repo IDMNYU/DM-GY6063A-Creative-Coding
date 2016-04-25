@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 11 Interactive examples</title>
+  <link rel="stylesheet" href="">
+  
+  <!-- p5.js library -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <script type="text/javascript" src="./libraries/p5.play.js"></script>
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="libraries/render.js"></script>
+  
+  <script src="libraries/p5.dom.js" type="text/javascript"></script>
+  <!-- code highlighting -->
+  <script type="text/javascript" src="libraries/prism.js"></script> 
+  <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
+  <style>
+  body{
+    font-size: 16px;
+  }
+  .ex{
+    padding:2rem 0;
+    border-bottom:1px dashed black;
+    max-width: 65rem;
+    margin:0 auto;
+  }
+  .example_container{
+    /*padding:1rem;*/
+    display: flex;
+  }
+  .code{
+  max-width:53%;
+  }
+  .cnv_div, .code {
+    margin:0 1rem;
+  }
+  .cnv_div {
+    overflow: scroll;
+  }
+  h1, h2 {
+    padding: 0 2rem;
+  }
+  h1 {
+    font-size: 250%;
+  }
+  canvas {
+    border: 1px solid black;
+  }
+  .notes, .challenge {
+    padding: .75rem 2rem;
+    font-size: 125%;
+  }
+  </style>
+</head>
+<body>
+
+  <section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var img;
+var numImages = 20;
+function preload(){
+  img = loadImage('assets/Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.jpeg');
+}
+function setup() {
+  createCanvas(400,400);
+}
+
+function draw() {
+  //images also work as backgrounds
+  //background(img);
+  //try changing the 4th and 5th parameters
+  image(img,0,0, width,height);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+  <section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var img;
+var pixelColor;
+
+function preload(){
+  img = loadImage('assets/Acanthurus_leucosternon_Maldives_2.jpg');
+}
+function setup() {
+  createCanvas(400,400);
+  pixelColor = color(0);
+}
+
+function draw() {
+  background(255);
+  image(img);
+  noStroke();
+  fill(pixelColor);
+  rect(width-50,0,50,50);
+  fill('white');
+  text("color picker", width-125,25);
+}
+function mouseMoved(){
+  //get the pixel color at x and y position
+  pixelColor = img.get(mouseX,mouseY);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+  <section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+/*
+ * @name Load and Display Image
+ * @description Images can be loaded and displayed to the screen at their
+ * actual size or any other size.
+ */
+var img;  // Declare variable 'img'.
+var destXSlider;
+var destYSlider;
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  img = loadImage("assets/moonwalk.jpg");  // Load the image
+
+  destXSlider = createSlider(0,100,100);
+  destXSlider.position(20,20);
+  
+  destYSlider = createSlider(0,100,100);
+  destYSlider.position(20,50);
+}
+
+function draw() {
+background(255);
+  // Displays the image at its actual size at point (0,0)
+image(img,
+  0, 0, //source position
+  img.width, img.height, //source size
+  //when we change the slider values,
+  //our image moves inside the canvas
+  destXSlider.value(),destYSlider.value(), //destination position
+  500, 500);//dest size
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+  <section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var img;
+var pixelColor;
+
+function preload(){
+  img = loadImage('assets/Acanthurus_leucosternon_Maldives_2.jpg');
+}
+function setup() {
+  createCanvas(400,400);
+  noStroke();
+  
+}
+
+function draw() {
+  background(255);
+  for(var x =0; x < img.width; x+=30){
+    for(var y=0; y < img.height; y+=30){
+      fill(img.get(x,y));
+      ellipse(x+random(-2,2),y+random(-2,2),20,20);
+    }
+  }
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+  <section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var img;
+var numImages = 20;
+function preload(){
+  img = loadImage('assets/Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.jpeg');
+}
+function setup() {
+  createCanvas(400,400);
+}
+
+function draw() {
+  //images also work as backgrounds
+  //background(img);
+  //try changing the 4th and 5th parameters
+  image(img,0,0, width,height);
+  
+  //tint params: valueRed, valueGreen,valueBlue, valueAlpha
+  tint(102,0,0);
+  image(img,width/2,0, width,height);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+  <section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var img;
+var imgBg;
+var numElvises = 5;
+function preload(){
+  img = loadImage('assets/elvis-flaming-star.png');
+  imgBg = loadImage('assets/Blue_sky_south_of_France.png');
+}
+
+function setup() {
+  createCanvas(400,400);
+}
+
+function draw() {
+  background(imgBg);
+  //try different tints and repetition patterns
+  tint(100,0,0,150);
+  for(var i=0; i < numElvises; i++){
+    tint(100,i*10,0,150);
+    image(img,i*40,0,img.width/2,img.height/2);
+  }
+
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+  <section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var img;
+function preload(){
+  img = loadImage('assets/Titian_Venus_of_Urbino.jpg');
+}
+function setup() {
+  createCanvas(400,400);
+}
+
+function draw() {
+  background(255);
+  //maintain source image ratio when resizing height
+  var resizedHeight = img.height * width / img.width;
+  image(img, 0,0,img.width,img.height,0,0,width,resizedHeight);
+  //very important: filter needs to come after image()
+  //uncomment each filter to test
+  //filter(BLUR,map(mouseX,0,width,0,5));
+  filter(THRESHOLD,map(mouseX,0,width,0,1));
+  // filter(POSTERIZE,map(mouseX,0,width,2,10));
+  // filter(ERODE);
+  // filter(INVERT);
+  //filter(GRAY);
+  //filter(DILATE);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+  <section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var img;
+var bandHeight = 60;
+var bandMisalign = 60;
+function preload(){
+  img = loadImage('assets/Crimson_sunset.jpg');  
+}
+function setup() {
+  createCanvas(400,400);
+  for(var i=0; i < img.height; i+=bandHeight){
+    img.copy(img,
+    0,i,img.width,bandHeight,
+    random(-bandMisalign,bandMisalign),i+10,img.width,bandHeight);    
+  }
+  var heightResized = width * img.height / img.width;
+  image(img, 0,0,img.width,img.height,0,0,width,heightResized);
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+//code by:
+// https://github.com/Jared-Sprague
+var runningCat;
+var savanna;
+var dest;//destination for our running cat
+var isRunning = false;
+var dX = 170;//our initial x pos of the cat
+function setup() {
+  frameRate(15);
+  createCanvas(windowWidth, 800);
+
+  savanna = loadImage('assets/african-savanna.png');
+  runningCat = loadImage('assets/running-cat.png');
+}
+
+var sX = 0, sY = 0;
+
+function draw() {
+  clear();
+  image(savanna,0,0,savanna.width,savanna.height,
+  0,0,width,savanna.height);
+
+  // Animate running cat
+  
+  sX += 300;
+  if (sX > 300) {
+    sX = 0;
+    sY += 150;
+    if (sY === 600) {
+      sY = 0;
+    }
+  }
+  if(isRunning){
+    println("running");
+    runToDest();
+    if(dX >= dest.x){
+      sX = 170;
+      isRunning = false;
+    }
+
+  } else{
+    image(runningCat, sX, sY, 300, 150, 170, 100, 300, 150);
+  }
+  // Show full sprite sheet for reference
+  image(runningCat, 0, 300, 300, 300);
+}
+function runToDest(){
+  dX +=5.0;
+  image(runningCat, sX, sY, 300, 150, dX, 100, 300, 150);
+}
+
+function mouseClicked(){
+  isRunning = true;
+  dest= createVector(mouseX,mouseY);
+  println(dest.x);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+  <section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+/**
+ * CODE DEPENDENCY: P5.Play Library 
+ */
+var ballerina;
+function preload(){
+
+//create an animation from a sequence of numbered images
+//pass the first and the last file name and it will try to find the ones in between
+ballerina = loadAnimation("assets/out-00000.png", "assets/out-00012.png");
+}
+
+function setup() {
+  createCanvas(400,400);
+}
+
+function draw() {
+  //specify the animation instance and its x,y position
+  //animation() will update the animation frame as well
+  animation(ballerina, width/2, height/2);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+<script> $(document).ready(function() { renderCode(); }); </script>
+</body>
+</html>
+
+

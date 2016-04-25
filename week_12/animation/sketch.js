@@ -35,7 +35,7 @@ function draw() {
     runToDest();
     if(dX >= dest.x){
       sX = 170;
-      isRunning = false;      
+      isRunning = false;
     }
 
   } else{
