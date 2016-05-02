@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 13 Interactive examples</title>
+  <link rel="stylesheet" href="">
+  
+  <!-- p5.js library -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js"></script>
+  <!-- optional addons for sound/dom examples -->
+  <script type="text/javascript" src="./libraries/p5.play.js"></script>
+  <!-- scripts for rendering -->
+  <script type="text/javascript" src="libraries/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="libraries/render.js"></script>
+  
+  <script src="libraries/p5.dom.js" type="text/javascript"></script>
+  <!-- code highlighting -->
+  <script type="text/javascript" src="libraries/prism.js"></script> 
+  <link rel="stylesheet" href="libraries/prism.css" type="text/css"/>
+  <style>
+  body{
+    font-size: 16px;
+  }
+  .ex{
+    padding:2rem 0;
+    border-bottom:1px dashed black;
+    max-width: 65rem;
+    margin:0 auto;
+  }
+  .example_container{
+    /*padding:1rem;*/
+    display: flex;
+  }
+  .code{
+  max-width:53%;
+  }
+  .cnv_div, .code {
+    margin:0 1rem;
+  }
+  .cnv_div {
+    overflow: scroll;
+  }
+  h1, h2 {
+    padding: 0 2rem;
+  }
+  h1 {
+    font-size: 250%;
+  }
+  canvas {
+    border: 1px solid black;
+  }
+  .notes, .challenge {
+    padding: .75rem 2rem;
+    font-size: 125%;
+  }
+  </style>
+</head>
+<body>
+
+  <section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var space;
+
+function setup() {
+  noCanvas();
+  // specify multiple formats for different browsers
+  space = createVideo(['media/anni003.mp4']);
+  space.loop(); // set the video to loop and start playing
+  space.volume(0);//we set the volume to 0 because we don't want
+                  //sound
+  space.showControls();
+  //a centered video element
+  space.position(windowWidth/2 - (space.width/2),windowHeight/2 - (space.height/2));
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var space;
+
+function setup() {
+  createCanvas(windowWidth,windowHeight);
+  // specify multiple formats for different browsers
+  space = createVideo(['media/anni003.mp4']);
+  space.loop(); // set the video to loop and start playing
+  space.volume(0);//we set the volume to 0 because we don't want
+                  //sound
+  space.showControls();
+  //a centered video element
+  space.position(windowWidth/2 - (space.width/2),windowHeight/2 - (space.height/2));
+
+  textSize(32);
+}
+function draw(){
+  background(255);
+  text("current video time: " + space.time(), 20,32);
+  text("video duration: " + space.duration(), 20,64);
+
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var space;
+var bgColor;
+
+function setup() {
+  bgColor = color(255,255,255);
+  createCanvas(windowWidth,windowHeight);
+  // specify multiple formats for different browsers
+  space = createVideo(['media/anni003.mp4']);
+  space.loop(); // set the video to loop and start playing
+  space.volume(0);//we set the volume to 0 because we don't want
+                  //sound
+  space.showControls();
+  //a centered video element
+  space.position(windowWidth/2 - (space.width/2),windowHeight/2 - (space.height/2));
+
+  textSize(32);
+}
+function draw(){
+  background(bgColor);
+  text("current video time: " + space.time(), 20,32);
+  text("video duration: " + space.duration(), 20,64);
+
+  space.addCue(3.0, changeBgColor, color(123,0,23));
+  space.addCue(4.0, changeBgColor, color(0,124,23));
+  space.addCue(6.5, changeBgColor, color(23,0,125));
+
+}
+
+function changeBgColor(col){
+  bgColor = col;
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+<section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var space;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  // specify multiple formats for different browsers
+  space = createVideo(['media/anni003.mp4']);
+  space.loop(); // set the video to loop and start playing
+  space.hide(); // by default video shows up in separate dom
+                  // element. hide it and draw it to the canvas
+                  // instead
+  space.volume(0);//we set the volume to 0 because we don't want
+                  //sound
+}
+
+function draw() {
+  background(150);
+  image(space,10,10); // draw the video frame to canvas
+  filter('GRAY');
+  image(space,150,150); // draw a second copy to canvas
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+<section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var fingers;
+
+function setup() {
+  createCanvas(320, 240);
+  // specify multiple formats for different browsers
+  fingers = createVideo(['media/anni003.mp4']);
+  fingers.loop();
+  fingers.hide();
+  noStroke();
+  fill(0);
+}
+
+function draw() {
+  background(255);
+  fingers.loadPixels();
+  var stepSize = round(constrain(mouseX / 8, 6, 32));
+  for (var y=0; y<height; y+=stepSize) {
+    for (var x=0; x<width; x+=stepSize) {
+      var i = y * width + x;
+      var darkness = (255 - fingers.pixels[i*4]) / 255;
+      var radius = stepSize * darkness;
+      ellipse(x, y, radius, radius);
+    }
+  }
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+<section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+
+var fingers;
+
+function setup() {
+  createCanvas(windowWidth,windowHeight);
+  // specify multiple formats for different browsers
+  space = createVideo(['media/anni003.mp4']);
+  space.loop(); // set the video to loop and start playing
+  space.volume(0);//we set the volume to 0 because we don't want
+                  //sound
+  space.hide();
+  noStroke();
+  //fill(0);
+}
+
+function draw() {
+  background(255);
+  space.loadPixels();
+  //var stepSize = round(constrain(mouseX / 8, 6, 64));
+  for (var y=0; y<height; y+=25) {
+    for (var x=0; x<width; x+=25) {
+      var i = y * width + x;
+      var darkness = (255 - space.pixels[i*4 % (space.pixels.length / 4)])/255;
+      var radius = darkness*25;//stepSize * darkness;
+      fill(
+        space.pixels[i % space.pixels.length],
+        space.pixels[i*2 % space.pixels.length],
+        space.pixels[i*3 % space.pixels.length]
+      );
+      ellipse(x, y, radius, radius);
+    }
+  }
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+<section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+
+var capture;
+
+function setup() {
+  createCanvas(390, 240);
+  capture = createCapture(VIDEO);
+  capture.size(320, 240);
+  //capture.hide();//uncomment this to hide the video DOM element
+}
+
+function draw() {
+  background(255);
+  image(capture, 0, 0, 320, 240);
+  filter('INVERT');
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+<section class="ex">
+  <h2></h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var capture;
+
+function setup() {
+  createCanvas(720, 360);
+  capture = createCapture(VIDEO);
+  capture.hide();
+}
+
+function draw() {
+  background(255);
+  image(capture,0,0);
+  capture.loadPixels();
+  for(var y=0; y<capture.height;y+=10){
+    for(var x=0; x<capture.width;x+=10){
+      var i = y * width + x;
+      var darkness = 255 - capture.pixels[i*4];
+      fill(darkness);
+      ellipse(x, y, 10, 10);
+    }
+  }
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+
+<script> $(document).ready(function() { renderCode(); }); </script>
+</body>
+</html>
+
+

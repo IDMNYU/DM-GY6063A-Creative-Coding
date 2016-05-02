@@ -165,7 +165,7 @@ beginShape(), endShape(), vertex(), for loop
 
 **Week 12 (4/25):** Image
 - **Reading**: Getting Started With p5.js, ch.7
-- **Assignment:** Work on Final Projects.
+- **Assignment:** Work on Final Projects.  Choose one of the examples shown in class and elaborate on it by choosing your own image sources and/or using p5.Play to animate images.
 
 **Week 13 (5/2):** Video, ffmpeg and imagemagick.
 - **Reading**: No Reading this week.
