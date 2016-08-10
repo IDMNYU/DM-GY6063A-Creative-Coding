@@ -98,31 +98,38 @@ function setup() {
 
 <section class="ex">
   <h2>Frame rate</h2>
-<section class="example_container">
-  <div class="script">
+  <section class="example_container">
+    <div class="script">
 
-<script class="language-javascript" type="text/p5" data-preview-width="400" data-height="500">
-/*
-* Frame rate.
-* Frame rate is how many frames per second your app will run.
-* You can set frame rate with the function frameRate(), and get frameRate
-* with the system variable frameRate.
-*/
-function setup(){
-  createCanvas(400,400);
-  frameRate(2);  
-}
+      <script class="language-javascript" type="text/p5" data-preview-width="400" data-height="500">
+      /*
+      * Frame rate.
+      * Frame rate is how many frames per second your app will run.
+      * You can set frame rate with the function frameRate(), and get frameRate
+      * with the system variable frameRate.
+      */
+      function setup(){
+        createCanvas(400,400);
+        frameRate(2);  
+      }
 
-function draw(){
-  ellipse(random(0, width), random(0,height),random(255),random(255));
-  println(frameRate());
-}
-    </script>
-    
+      function draw(){
+        ellipse(random(0, width), random(0,height),random(255),random(255));
+        println(frameRate());
+      }
+      </script>        
     </div>
-    
+      
   </section>
-  
+</section>
+
+<section class="ex">
+  <h2>Homework assignment</h2>
+  <div class="example_container">
+    <p>
+      Geometric Abstraction exercise: <a href="https://www.google.com/culturalinstitute/u/0/entity/%2Fm%2F05bw0l?projectId=art-project" target="_blank"> Google Art Project</a>.  Choose an artwork from the Geometric Abstraction category of the Google Cultural Institute, and recreate the work using p5.js.  You must credit the original artist in your code/documentation with artist name, title of work, and date. 
+    </p>
+  </div>
 </section>
 </body>
 </html>
