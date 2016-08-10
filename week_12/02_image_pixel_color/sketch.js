@@ -2,10 +2,10 @@ var img;
 var pixelColor;
 
 function preload(){
-  img = loadImage('assets/Acanthurus_leucosternon_Maldives_2.jpg');
+  img = loadImage('assets/Crimson_sunset.jpg');
 }
 function setup() {
-  createCanvas(400,400);
+  createCanvas(windowWidth,windowHeight);
   pixelColor = color(0);
 }
 

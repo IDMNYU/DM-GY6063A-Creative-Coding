@@ -3,7 +3,7 @@ var capture;
 function setup() {
   createCanvas(720, 360);
   capture = createCapture(VIDEO);
-  capture.hide();
+  //capture.hide();
 }
 
 function draw() {

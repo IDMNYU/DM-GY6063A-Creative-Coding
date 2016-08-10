@@ -11,8 +11,6 @@ Department of Technology, Culture and Society (TCS)
 
 # DM 6063A Creative Coding
 
-**Spring 2016**
-
 Instructor Kevin Siwoff
 
 Mon 6:30-9:20p; MAGNET 2MTC 817
@@ -20,6 +18,8 @@ Mon 6:30-9:20p; MAGNET 2MTC 817
 To contact Instructor: KSiwoff@nyu.edu
 
 Office hours: Professor office hours by appointment.
+
+Academic calendar: Academic calendar will vary per semester.  Please consult your current NYU academic schedule for information regarding holidays.
 
 # IDM Program Objectives
 
@@ -45,17 +45,11 @@ This course is a graduate-level, introductory creative programming course, appro
 
 In Creative Coding, students are trained to go beyond sequential problem solving and to use the computer as a creative medium for art, games, and graphic design.  This course will introduce you to a variety of concepts in programming, and how they can be applied creatively to work in a variety of media, such as 2D graphics, animation, image and video processing. A strong focus will be on creating interactive experiences for the web. By the end of this course, students will be empowered to read and write javascript for creative applications, as well as walk away with a midterm and final project.
 
-Some of the programming environments we will work with include:
+The programming environment we will use:
 
 ### Core:
 
 * P5.js: [http://p5js.org](http://p5js.org/)
-
-### Also:
-
-* ffmpeg:[https://www.ffmpeg.org/](https://www.ffmpeg.org/)
-
-* Imagemagick:[http://www.imagemagick.org](http://www.imagemagick.org)
 
 # Course Objectives
 
@@ -84,8 +78,9 @@ Course requirements include small weekly projects (studies), a project proposal,
 * Final project. This project can be an interactive tool, a data visualization/sonification, or any other approved proposal. Your project must use p5.js.  All final projects will be collected and put together as an "interactive book" (25%).
 
 # Final project
+Submit 3 sketches for inclusion in an interactive book. All of the sketches must be created with p5.js, and demonstrate different techniques learned in class including but not limited to generative text, particle systems, and color theory.
 
-Final Project information and planning document: [HERE](https://docs.google.com/document/d/1zgjpMNf9y_yPxFDTq_USR8_ManVNy3Ks00N40gmZcEY/edit#heading=h.8k2zzp3ssm9e)
+Final projects from previous semesters can be found: [HERE](http://bxmc.poly.edu/cc/#)
 
 # Readings
 
@@ -109,69 +104,64 @@ This schedule is subject to change depending on the interests and pace of the cl
 
 ## Part I
 
-**Week 1 (1/25):** Introduction to the class. Download and install required software. Basics of 2D drawing.
+**Week 1:** Introduction to the class. Download and install required software. Basics of 2D drawing.
 - **Reading**: Getting Started With p5.js, ch.1-3
 - **Assignment:** Sol Lewitt drawing exercise.
 
-**Week 2 (2/1):** Variables and data types. Conditionals.
+**Week 2:** Variables and data types. Conditionals.
 - **Reading**: Getting Started With p5.js, ch.4
 - **Assignment:** Geometric Abstraction exercise: [https://www.google.com/culturalinstitute/u/0/entity/%2Fm%2F05bw0l?projectId=art-project](https://www.google.com/culturalinstitute/u/0/entity/%2Fm%2F05bw0l?projectId=art-project).
 
-**Week 3 (2/8):** Arrays and collections. Looping and repetition.
+**Week 3:** Looping and repetition.
 - **Reading**: Getting Started With p5.js, ch.11
 - **Assignment:** Study and use beginShape() and endShape() to draw 3 separate sketches.  Each sketch must contain vertices ( vertex() ).
 tools you will need:
 beginShape(), endShape(), vertex(), for loop
 
-
-**(2/15): Presidents' Day** No class.
-
-**Week 4 (2/22):** Color
+**Week 4:** Color
 - **Reading**: Getting Started With p5.js, pgs.29-33; The Interaction of Color, "ch.IV A color has many faces- the relativity of color" and “ch XVIII. Free Studies: a challenge to imagination”
 - **Assignment**: Pick two themes from ch. 18 of Josef Albers’ “The Interaction of Color” and recreate them in p5.js.-
 
-**Week 5 (2/29):**  Functions, and interaction with the keyboard and mouse.
+**Week 5:**  Functions, and interaction with the keyboard and mouse.
 - **Reading**: Gettings Started With p5.js, ch.9
 - **Assignment:** Create a Create a character (animal, person, etc.) and make a function that draws the character.  Your character function must have parameters allowing you to draw or animate certain properties.  Some example parameters you might want to create are height, width, positionX, positionY.  Also, bring in one example book (either paper or digital) as inspiration for the final project
 
-**Week 6 (3/7):** Transformation and translation.
+**Week 6:** Transformation and translation.
 - **Reading**: Getting Started With p5.js, ch.6
 - **Assignment:** Create a sketch with spiralling shapes.  The sketch can either be animated or static.  You will need to use a combination of rotate and translate in order to spiral the shape.  Once you get the spiraling form, try incorporating an interpolated color pallette using lerpColor(); 
 
-**(3/14): Spring break:** No class. 
-
 ## Part II
 
-**Week 7 (3/21):** Harmonic motion and animation.
+**Week 7:** Harmonic motion and animation.
 - **Reading**: Getting Started With p5.js, ch.8
 - **Assignment:** Create a sketch that animates multiple shapes along Lissajous curves.  Try animating color and size properties of the shapes using sin() and cos() as well.
 
-**Week 8 (3/28):** Generative text and typography: An introduction to the RiTa addon for p5.js
+**Week 8:** Generative text and typography: An introduction to the RiTa addon for p5.js
 - **Reading**: [Concerning the Visual in Poetry](http://rwet.decontextualize.com/pdfs/witz71.pdf)
 - **Assignment:** Generative Madlib poetry: Find a prose poetry text from [Wikisource](https://en.wikisource.org/) and replace all nouns and adjectives with random nouns and adjectives.  Try adding a rhymescheme.
 
-**Week 9 (4/4):** Object Oriented Programming
+**Week 9:** Arrays and Object Oriented Programming
 - **Reading**: Getting Started With p5.js, ch.10
 - **Assignment:** Create a Particle System using Javascript Objects.  Particles can be any size or shape you want.
 
-**Week 10 (4/11):** The Document Object Model (DOM).
+**Week 10:** The Document Object Model (DOM).
 - **Reading**: Getting Started With p5.js, pg206-210
 - **Assignment:** Create a user interface for your canvas sketch using the DOM library.  The interface should control parameters in the sketch.  Some possible examples of parameters are size, color, animation speed, etc.
 
-**Week 11 (4/18):** Data Visualization
+**Week 11:** Data Visualization
 - **Reading**: Getting Started with p5.js, ch. 12; Judith Donath et al. [“Data portraits“](http://smg.media.mit.edu/papers/Donath/DataPortraits.Siggraph.final.graphics.pdf). Proceedings of SIGGRAPH 2010, Pages 375-383.
 
 - **Assignment:** Inspired by [Dear Data](http://www.dear-data.com/), record 5 days of data from your life and visualize the data using p5.js.  See class notes for how to structure your data. 
 
-**Week 12 (4/25):** Image
+**Week 12:** Image
 - **Reading**: Getting Started With p5.js, ch.7
 - **Assignment:** Work on Final Projects.  Choose one of the examples shown in class and elaborate on it by choosing your own image sources and/or using p5.Play to animate images.
 
-**Week 13 (5/2):** Video, ffmpeg and imagemagick.
+**Week 13:** Video
 - **Reading**: No Reading this week.
 - **Assignment**: Work on Final Projects.
 
-**Week 14 (5/9):** Final Project Presentations.  All homework assignments due
+**Week 14:** Final Project Presentations.  All homework assignments due
 
 
 * * *

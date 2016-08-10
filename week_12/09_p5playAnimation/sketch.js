@@ -10,7 +10,7 @@ ballerina = loadAnimation("assets/out-00000.png", "assets/out-00012.png");
 }
 
 function setup() {
-  createCanvas(400,400);
+  createCanvas(windowWidth,windowHeight);
 }
 
 function draw() {

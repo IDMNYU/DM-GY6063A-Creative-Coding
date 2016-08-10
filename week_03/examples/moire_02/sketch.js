@@ -17,24 +17,11 @@ function draw() {
   noFill();
   
   //stationary ellipse
-  push();
   translate(width/2, height/2);
+  //loop 25 times
   for(var i =0; i < 25; i++){
     rect(0, 0,
     i*ellipseWidthMultiplier,
     i*ellipseHeightMultiplier);
   }
-  pop();
-
-  //rotating ellipse
-  push();
-  translate(width/2, height/2);
-  rotate(theta);
-  for(var i =0; i < 25; i++){
-    rect(0, 0,
-    i*ellipseWidthMultiplier,
-    i*ellipseHeightMultiplier);
-  }
-  pop();
-  theta += rotationSpeed;
 }

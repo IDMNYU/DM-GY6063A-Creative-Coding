@@ -7,6 +7,8 @@
  */
 var space;
 var bgColor;
+var isMakeBubble = false;
+var bubblePos;
 
 function setup() {
   bgColor = color(255,255,255);
@@ -19,18 +21,36 @@ function setup() {
   space.showControls();
   //a centered video element
   space.position(windowWidth/2 - (space.width/2),windowHeight/2 - (space.height/2));
-
+  
+  space.addCue(3.0, changeBgColor, color(123,0,23));
+  space.addCue(4.0, changeBgColor, color(0,124,23));
+  space.addCue(6.5, changeBgColor, color(23,0,125));
+  space.addCue(1.2, makeBubble);
+  space.addCue(2.2, makeBubble);
+  space.addCue(3.2, makeBubble);
+  space.addCue(4.2, makeBubble);
+  
   textSize(32);
 }
 function draw(){
   background(bgColor);
   text("current video time: " + space.time(), 20,32);
   text("video duration: " + space.duration(), 20,64);
-  
-  space.addCue(3.0, changeBgColor, color(123,0,23));
-  space.addCue(4.0, changeBgColor, color(0,124,23));
-  space.addCue(6.5, changeBgColor, color(23,0,125));
-  
+  if(isMakeBubble  == true){
+    if(bubblePos < 0){
+      isMakeBubble = false;
+    }
+    else {
+      ellipse(width/2,bubblePos, 20,20);
+      bubblePos--;      
+    }
+
+  }
+}
+
+function makeBubble(){
+  isMakeBubble = true;
+  bubblePos = height/2;
 }
 
 function changeBgColor(col){

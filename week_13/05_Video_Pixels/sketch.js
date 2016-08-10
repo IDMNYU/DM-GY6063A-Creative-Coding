@@ -18,11 +18,12 @@ function setup() {
   space.hide();
   noStroke();
   //fill(0);
+  space.loadPixels();
 }
 
 function draw() {
   background(255);
-  space.loadPixels();
+
   //var stepSize = round(constrain(mouseX / 8, 6, 64));
   for (var y=0; y<height; y+=25) {
     for (var x=0; x<width; x+=25) {

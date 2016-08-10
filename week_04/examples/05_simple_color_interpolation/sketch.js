@@ -1,37 +1,20 @@
-//A simple color interpolation example
-//try changing the colorMode from RGB to HSB
-var colorFrom, colorTo;
-//increase this number for more steps between colors
-var rectStep = 10;
+var numColumns = 10;
+var colorFrom;
+var colorTo;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  // frameRate(1);
-  noLoop();
+  colorMode(HSB,360,100,100);
+  noStroke();
+  colorFrom = color(0,50, 100);
+  colorTo = color(45,80, 100);
 }
 
 function draw() {
-  background(255);
-  //the color we want to start interpolating from
-  colorFrom = color(100,
-  100,
-  100);
-  
-  //the color we want to interpolate to
-  colorTo = color(50,
-  255,
-  255);
-  
-
-  for(var x=0; x < width; x += rectStep){
-    noStroke();
-    //interpolation amount changes each step of our
-    //for loop
-    var lerpAmt = map(x, 0, width, 0, 1.0);
-    
-    var lerpedCol = lerpColor(colorFrom,
-      colorTo,
-      lerpAmt);    
-    fill(lerpedCol);
-    rect(x,0,rectStep,height);
+  for(var i=0; i < numColumns; i++){
+    var interpValue = map(mouseX * (i*0.25), 0, width, 0.0, 1.0);
+    var colorHue = lerpColor(colorFrom, colorTo, interpValue);
+    fill(colorHue, 100,100);
+    rect(i* width/numColumns, 0, width/numColumns, height);
   }
 }

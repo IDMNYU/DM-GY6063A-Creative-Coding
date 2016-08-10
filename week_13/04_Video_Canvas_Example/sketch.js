@@ -24,6 +24,9 @@ function setup() {
 
 function draw() {
   background(150);
-  image(space,10,10); // draw the video frame to canvas
-  image(space,150,150); // draw a second copy to canvas
+  image(space,0,0);
+  space.filter(BLUR);
+  image(space, width/2,height/2);
+  //image(space,10,10); // draw the video frame to canvas
+  //image(space,150,150); // draw a second copy to canvas
 }
