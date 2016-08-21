@@ -136,13 +136,13 @@ beginShape(), endShape(), vertex(), for loop
 - **Reading**: Getting Started With p5.js, ch.8
 - **Assignment:** Create a sketch that animates multiple shapes along Lissajous curves.  Try animating color and size properties of the shapes using sin() and cos() as well.
 
-**Week 8:** Generative text and typography: An introduction to the RiTa addon for p5.js
-- **Reading**: [Concerning the Visual in Poetry](http://rwet.decontextualize.com/pdfs/witz71.pdf)
-- **Assignment:** Generative Madlib poetry: Find a prose poetry text from [Wikisource](https://en.wikisource.org/) and replace all nouns and adjectives with random nouns and adjectives.  Try adding a rhymescheme.
-
-**Week 9:** Arrays and Object Oriented Programming
+**Week 8:** Arrays and Object Oriented Programming
 - **Reading**: Getting Started With p5.js, ch.10
 - **Assignment:** Create a Particle System using Javascript Objects.  Particles can be any size or shape you want.
+
+**Week 9:** Generative text and typography: An introduction to the RiTa addon for p5.js
+- **Reading**: [Concerning the Visual in Poetry](http://rwet.decontextualize.com/pdfs/witz71.pdf)
+- **Assignment:** Generative Madlib poetry: Find a prose poetry text from [Wikisource](https://en.wikisource.org/) and replace all nouns and adjectives with random nouns and adjectives.  Try adding a rhymescheme.
 
 **Week 10:** The Document Object Model (DOM).
 - **Reading**: Getting Started With p5.js, pg206-210

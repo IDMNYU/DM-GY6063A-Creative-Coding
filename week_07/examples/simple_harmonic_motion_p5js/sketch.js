@@ -1,25 +1,19 @@
 /**
 ** Simple harmonic motion
 **/
-
-var angle = 0.0;
 var x = 0.0;
-//change the value of period to change how fast the rectangle animates
-var periodSlider;
+var angle = 0.0;
+var period = 145.0;
 function setup(){
   createCanvas(windowWidth,windowHeight);
-  periodSlider = createSlider(1,100, 45);
-  periodSlider.position(20,20);
 }
 function draw(){
   background(255);
-  fill(0);
-  text("period: " + periodSlider.value(), 175,30);
   translate(width/2, height/2);
-  var amplitude = width/2;//play with the amplitude value 
-  var angle = frameCount / periodSlider.value() * TWO_PI;
-  x = cos(angle)* amplitude;
-
-  fill(245,0,123);
-  rect(x,0,40,40);
+  fill(245, 0, 123);
+  var amplitude = width/2;
+  angle = frameCount / period * TWO_PI;
+  x = sin(angle) * amplitude;
+  rect(x,0, 45,45);
 }
+

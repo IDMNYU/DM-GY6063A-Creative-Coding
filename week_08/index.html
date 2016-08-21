@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Week 8 interactive examples: Text and typography</title>
+  <title>Week 8 interactive examples: Arrays & Objects</title>
   <link rel="stylesheet" href="">
   <!-- p5.js library -->
   <script type="text/javascript" src="libraries/p5.js"></script>
@@ -53,426 +53,474 @@
   </style>
 </head>
 <body>
+
 <section class="ex">
-<h1>Analyzing text</h1>
-  <h2>Hello Rita: Tokens</h2>
+  <h2>Arrays: Adding elements, pt.1</h2>
   <section class="example_container">
     <div class="code">
       <pre>
 <code class="language-javascript">
-function setup() {
-    createCanvas(400,400);
-    textSize(48);
-    //tokenize splits a string of text
-    //into an array of words and tokens (. , !, ?, etc.)
-    var words = RiTa.tokenize("Got me looking so crazy right now.");
-    //to pull out each word,
-    //we need to loop over the words array
-    for(var i=0; i < words.length; i++){
-      text(words[i], 50, i*48 + 48);
-    }
-    
-}
-</code>
-      </pre>
-    </div>  
-  </section>
-  <section class="notes">
-    Notes: First we tokenize our string of text, then we render each token on a separate line.
+var myFirstArray = [];
 
-    text() takes 3 parameters.  The second and third parameters are width and height of our text box.
-  </section>
-</section><!-- END EXAMPLE -->
-
-<section class="ex">
-  <h2>Phonemes</h2>
-  <section class="example_container">
-    <div class="code">
-      <pre>
-<code class="language-javascript">
 function setup() {
-  createCanvas(400,400);
-  textSize(20);
-  // gets the phonemes from a string of text and returns a phonetically spelled string
-  var words = RiTa.getPhonemes("Got me looking so crazy right now.");
-  text(words, 50, 50,300,100);
+  createCanvas(500,500);
+  colorMode(HSB,360,100,100);
+  rectMode(CENTER);
+  println(myFirstArray);
+  for(var i=0; i < 5; i++){
+    myFirstArray.push(random(100));
   }
-</code>
-      </pre>
-    </div>  
-  </section>
-  <section class="notes"></section>
-</section><!-- END EXAMPLE -->
-
-<section class="ex">
-  <h2>textWidth() : A way of measuring our string widths</h2>
-  <section class="example_container">
-    <div class="code">
-      <pre>
-<code class="language-javascript">
-function setup() {
-  createCanvas(400,400);
-  textSize(20);
-
-  var word = "huge";
-  var wordWidth = textWidth(word);
-  text(word, 50, 50,wordWidth,100);
-  rect(50,75, wordWidth, wordWidth);
-
-  var wordTwo = "huuuuge";
-  var wordTwoWidth = textWidth(wordTwo);
-  text(wordTwo, wordWidth + 75, 50,wordTwoWidth,100);
-  rect(wordWidth + 75, 75, wordTwoWidth, wordTwoWidth);
-
-  var wordThree = "huuuuuuuuge";
-  var wordThreeWidth = textWidth(wordThree);
-  text(wordThree, 220, 50,wordThreeWidth,100);
-  rect(220, 75, wordThreeWidth, wordThreeWidth);    
-}
-</code>
-      </pre>
-    </div>  
-  </section>
-  <section class="notes">
-    We use the width of the string to determine the width and height of each square.
-  </section>
-</section><!-- END EXAMPLE -->
-
-<section class="ex">
-  <h2>Stresses</h2>
-  <section class="example_container">
-    <div class="code">
-      <pre>
-<code class="language-javascript">
-var lyricLine = "Thank you very much Mister Robot.";
-var words = [];
-var stresses;
-function setup() {
-    createCanvas(400,400);
-    textSize(20);
-    
-    //get all of the stresses as an array of 1's and 0's where 1 means stressed
-    //and 0 means unstressed
-    stresses = RiTa.getStresses(lyricLine);
-    words = RiTa.tokenize(lyricLine);
-}
-  
-  function draw(){
-    background(255);
-    var wordPos = 0;
-    for(var i=0; i < words.length; i++){
-      text(words[i], wordPos, 0, textWidth(words[i]),20);
-      var wordStresses = RiTa.getStresses(words[i]);
-      text(wordStresses, wordPos, 20, textWidth(words[i]), 20);
-      wordPos += textWidth(words[i])+ 20;
-    }
-  }
-</code>
-      </pre>
-    </div>  
-  </section>
-  <section class="notes">
-    Notes: RiTa.getStresses() takes a word as its only parameter.  Each word is evaluated for stresses, and returns a / (slash) separated list of 1s and 0s. A 1 means there is a stress, a 0 means no stress.  
-  </section>
-  <section class="challenge">
-    Challenge: Try changing the text inside lyricLine to see how it affects the word stresses.
-  </section>
-</section><!-- END EXAMPLE -->
-
-<section class="ex">
-  <h2>Parts of speech tags</h2>
-  <section class="example_container">
-    <div class="code">
-      <pre>
-<code class="language-javascript">
-//Couplet by Ezra Pound
-var couplet = "Drawing a sword, cut into water, water again flow: Raise cup, quench sorrow, sorrow again sorry.";
-
-var words = [];
-var partsOfSpeech = [];
-
-function setup() {
-    createCanvas(400,400);
-    textSize(12);
-
-    words = RiTa.tokenize(couplet);
-    partsOfSpeech = RiTa.getPosTags(words);
-}
-  
-  function draw(){
-    background(255);
-    var wordPosX = 0;
-    var wordPosY = width/4;
-
-    for(var i=0; i < words.length; i++){
-      text(words[i], wordPosX, wordPosY, 
-      textWidth(words[i]),20);
-
-      //we check whether each parts of speech exists
-      //in our array
-      if( partsOfSpeech[i] != null){
-        text(partsOfSpeech[i], wordPosX, wordPosY+20, textWidth(words[i]), 20);        
-      }
-
-      wordPosX += textWidth(words[i])+ 20;
-      
-      //if wordPosX goes beyond our width,
-      //move the text down to a new line
-      if(wordPosX > width){
-        wordPosX = 0;
-        wordPosY += 100;
-      }
-    }
-  }
-</code>
-      </pre>
-    </div>  
-  </section>
-  <section class="notes">
-    Notes: <i>A part of speech (abbreviated form: PoS or POS) is a category of words (or, more generally, of lexical items) which have similar grammatical properties. Words that are assigned to the same part of speech generally display similar behavior in terms of syntax—they play similar roles within the grammatical structure of sentences—and sometimes in terms of morphology, in that they undergo inflection for similar properties. Commonly listed English parts of speech are noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, and sometimes numeral, article or determiner.</i> - <a href="https://en.wikipedia.org/wiki/Part_of_speech" target="_blank">Wikipedia</a><br><br>
-    RiTa.getPosTags() returns an array of <a href="http://rednoise.org/rita/reference/PennTags.html" target="_blank">PENN tags</a>. 
-  </section>
-</section><!-- END EXAMPLE -->
-
-<section class="ex">
-  <h2>Word count</h2>
-  <section class="example_container">
-    <div class="code">
-      <pre>
-<code class="language-javascript">
-var lyricLine = "Thank you very much Mister Robot";
-function setup() {
-    createCanvas(400,400);
-    textSize(20);
-    textAlign(CENTER);
-}
-  
-  function draw(){
-    background(255);
-    text(lyricLine, 0,height/2, width, 20);
-
-    text("number of words: "+ RiTa.getWordCount(lyricLine),
-      0,height/2 + 20,width,20
-    );
-  }
-</code>
-      </pre>
-    </div>  
-  </section>
-</section><!-- END EXAMPLE -->
-
-
-<section class="ex">
-<h1>Generating text</h1>
-  <h2>Generating random text</h2>
-  <section class="example_container">
-    <div class="code">
-      <pre>
-<code class="language-javascript">
-var lexicon;
-function setup() {
-  createCanvas(400, 400);
-  //first create a new RiLexicon
-  lexicon = new RiLexicon();
-  textSize(20);
-  textAlign(CENTER);
-  text("Click for random word", width/2, height/2);
+  println(myFirstArray);
 }
 
-function mousePressed() {
-  background(255);
-  //get a random word from our lexicon object
-  text(lexicon.randomWord(), width/2, height/2);  
-}
-</code>
-      </pre>
-    </div>  
-  </section>
-  <section class="notes">
-    Notes: We can think of RiLexicon() as the entire lexicon of language.  In order to "activate" the lexicon we need to construct it using the new keyword.
-  </section>
-</section><!-- END EXAMPLE -->
-
-<section class="ex">
-  <h2>Generating Madlibs</h2>
-  <section class="example_container">
-    <div class="code">
-      <pre>
-<code class="language-javascript">
-/**
- * by Allison Parrish
- */
-var lexicon;
-function setup() {
-  createCanvas(400, 400);
-  lexicon = new RiLexicon();
-  background(50);
-  fill(255);
-  noStroke();
-  textSize(32);
-  textAlign(CENTER, CENTER);
-  text("Click for fun", width/2, height/2);
-}
 function draw() {
-}
-function mousePressed() {
-  background(50);
-  textAlign(LEFT, TOP);
-  var output = "April is the " +
-    lexicon.randomWord("jj") + " " + 
-    lexicon.randomWord("nn") + ", " +
-    lexicon.randomWord("vbg") + " " +
-    lexicon.randomWord("nns") + 
-    " out of the " +
-    lexicon.randomWord("jj") + " " +
-    lexicon.randomWord("nn");
-  text(output, 10, 10, width-20, height-20);
+  background(0,0,100);
+  fill(0,100,100,0.4);
+  for(var i =0; i < myFirstArray.length; i++){
+    rect(width/2, height/2, myFirstArray[i], myFirstArray[i]);
+    println('element value is: ' + myFirstArray[i]);
+  }
 }
 </code>
       </pre>
     </div>  
   </section>
-  <section class="notes">
-  </section>
-  <section class="notes">
-    Notes: Key to <a href="http://rednoise.org/rita/reference/PennTags.html" target="_blank">PENN tags</a> jj = adjective, nn = noun, vbg = Verb, gerund or present participle, nns = Noun, plural
-  </section>
   <section class="challenge">
-    Challenge: Try generating random words from other PENN tags.
   </section>
 </section><!-- END EXAMPLE -->
 
 <section class="ex">
-  <h2>Random haiku</h2>
+  <h2>Arrays: Adding elements, pt.2</h2>
   <section class="example_container">
     <div class="code">
       <pre>
 <code class="language-javascript">
-var lexicon;
-function setup() {
-  createCanvas(400, 400);
-  lexicon = new RiLexicon();
-  textSize(20);
-  textAlign(CENTER, CENTER);
+var mySecondArray = [];
 
-  textAlign(LEFT, TOP);
-  generateHaiku();
+function setup() {
+  createCanvas(500,500);
+  println(mySecondArray);
+  for(var i=0; i < 5; i++){
+    mySecondArray[i] = i*50;
+  }
+  println(mySecondArray);
+}
+
+function draw() {
+  background(255);
+  noFill();
+  for(var i=0; i < mySecondArray.length; i++){
+    ellipse(width/2, height/2, mySecondArray[i]+50,mySecondArray[i]+50);
+  }
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="challenge">
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Arrays: Removing Elements</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var myThirdArray = [
+  'apple',
+  'orange',
+  'banana',
+  'peach'
+];
+function setup() {
+  createCanvas(500,500);
+}
+
+function draw() {
+  background(255);
+  text(myThirdArray[myThirdArray.length-1], width/2, height/2);
 }
 
 function mousePressed(){
-  generateHaiku();
+  shorten(myThirdArray);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="challenge">
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Arrays: Removing Elements, Splice</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+var myThirdArray = [
+  'apple',
+  'orange',
+  'banana',
+  'peach'
+];
+var spliced = [];
+
+function setup() {
+  createCanvas(500,500);
 }
 
-function generateHaiku(){
-  var output =
-    //first line, 5 syllables
-    lexicon.randomWord("vb", 1) + " " + 
-    lexicon.randomWord("jj", 2) + " " +
-    lexicon.randomWord("nn", 2) + "\n" +
-
-    //second line, 7 syllables
-    lexicon.randomWord("vbg", 2) + " " +
-    lexicon.randomWord("nn", 2) + " " +
-    lexicon.randomWord("rb", 3) + "\n" +
-    
-    //third line, 5 syllables
-    lexicon.randomWord("nns", 1) + " " +
-    lexicon.randomWord("vbg", 2) + " " +
-    lexicon.randomWord("nn", 2);
+function draw() {
   background(255);
-  text(output, 10, 10, width-20, height-20);
+  text(myThirdArray[0], width/2, height/2);
+  text(spliced,  width/2, height/2+45);
+}
+
+function mousePressed(){
+  spliced = myThirdArray.splice(0,1);
+}
+</code>
+      </pre>
+    </div>  
+  </section>
+  <section class="challenge">
+  </section>
+</section><!-- END EXAMPLE -->
+
+
+  <section class="ex">
+  <h2>Object Literal: Simple particle</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+//our Particle Object
+var Particle = {
+  size   : 100,
+  name    : "astroid",
+  color   : "red"
+};
+///////////////////
+function setup() {
+  createCanvas(400,400);
+  //we assign the data of our Particle object
+  //to a local variable called particle
+  var particle = Particle;
+
+  fill(particle.color);
+  noStroke();
+  ellipse(width/2,height/2, particle.size,particle.size);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  text(particle.name, width/2, height/2);
 }
 
 </code>
       </pre>
     </div>  
   </section>
-  <section class="notes">
+  <section class="challenge">
+    Challenge 1: create 3 instances of our Particle object, distributing each evenly across the canvas.
   </section>
-  <section class="notes">
-    Notes: By adding a second parameter to randomWord(), we can specify the number of syllables in a given random word.  <a href="https://en.wikipedia.org/wiki/Haiku" target="_blank">Haiku</a>
+  <section class="challenge">
+    Challenge 2: Change the color of each particle instance.
   </section>
 </section><!-- END EXAMPLE -->
 
+
 <section class="ex">
-  <h2>preload() and loading lots of text from a file</h2>
+  <h2>Object Literal: Cat object</h2>
   <section class="example_container">
     <div class="code">
       <pre>
 <code class="language-javascript">
-var lines = [];//we declare lines as an empty array 
-//preload gets called BEFORE setup
-function preload(){
-  //loadStrings returns an array of Strings from our text file
-  //you must have a local file in order for this function to work
-  lines = loadStrings('assets/The Problems of Philosophy.txt');
-}
-
+////////////////////
+// This is an Object Literal
+// Object literals are Objects defined within 
+// curly brackets like : { }
+/////////////////////
+var Cat = {
+  color: "brown",
+  greeting: "purr!",
+  
+  sayHello : function(){
+    return this.greeting;
+  } 
+};
 function setup() {
-  createCanvas(400,400);
-  //renders the contents of our lines array
-  text(lines, 0,0,width,height);
+ //since Cat does not have a constructor
+ //function, we can create Cat instance like this.
+ var myCat = Cat;
+ createCanvas(400,400);
+ textAlign(CENTER);
+ text(myCat.sayHello(), width/2, height/2);
 }
 </code>
       </pre>
     </div>  
   </section>
-  <section class="notes">
-    Notes: preload() is a p5.js native function made for loading large files and chunks of data.  It's best used with loadStrings().
-
-    If you want to load text from a file, the file needs to be present in your project directory.  In this example, we have a text file that lives inside a directory called "assets".  You can name your files and folders whatever you like!
-  </section>
 </section><!-- END EXAMPLE -->
 
 <section class="ex">
-  <h2>splitting sentences</h2>
+  <h2>Object Function: Particle</h2>
   <section class="example_container">
     <div class="code">
       <pre>
 <code class="language-javascript">
-var lines = [];//we declare lines as an empty array
-
-//preload gets called BEFORE setup
-function preload(){
-  //loadStrings returns an array of Strings from our text file
-  //you must have a local file in order for this function to work
-  lines = loadStrings('assets/The Problems of Philosophy.txt');
-
+/////////////////////////////
+// Object constructor!
+/////////////////////////////
+function Particle(pos) {
+  this.speed   = 10;
+  this.name    =  "astroid";
+  this.color   = "red";
+  this.pos     = pos;//pos is a p5.Vector
 }
 
-function setup() {
-  createCanvas(400,400);
-  //joins an array into a long string
-  //and puts empty space between array elements
-  var linesAsString = lines.join(' ');
-  
-  //in order to split by sentence,
-  //we need to have our lines as a single long string
-  var sentences = RiTa.splitSentences(linesAsString);
-  
-  text('there are ' + sentences.length + ' sentences in this book', 0,10);
-  //loop through each of the sentences
-  //and do something with each of the sentences
-  for(var i=0; i < sentences.length;i++){
-    //your code here
+// here's where we define our methods
+// aka. the stuff the Object does
+Particle.prototype = {
+  constructor : Particle,
+  bounce : function(){
+    // if particle position has gone outside the boundary
+    // of our canvas.  reverse speed!
+    if (this.pos.y > height || this.pos.y < 0){
+      this.speed *= -1;
+    }
+    //add speed to our our particle position
+    this.pos.add(new p5.Vector(0,this.speed));
   }
   
+};
+
+var particle;
+function setup() {
+  createCanvas(400,400);
+  particle = new Particle(createVector(width/2, height/2));
 }
+
+function draw() {
+  background(255);
+  fill(particle.color);
+  noStroke();
+  ellipse(particle.pos.x,particle.pos.y, 100, 100);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  text(particle.name, particle.pos.x, particle.pos.y);
+  particle.bounce();
+}
+
 </code>
       </pre>
     </div>  
   </section>
-  <section class="notes">
-    Notes: preload() is a p5.js native function made for loading large files and chunks of data.  It's best used with loadStrings() to load a lot of text from a .txt file.
+</section><!-- END EXAMPLE -->
+<section class="ex">
+  <h2>Object Function: Particle</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+/////////////////////////////
+// Object constructor!
+/////////////////////////////
+function Particle(pos) {
+  this.speed   = 2;
+  this.name    =  "astroid";
+  this.color   = "blue";
+  this.pos     = pos;//pos is a p5.Vector
+}
+
+// here's where we define our methods
+// aka. the stuff the Object does
+Particle.prototype = {
+  constructor : Particle,
+  bounce : function(){
+    // if particle position has gone outside the boundary
+    // of our canvas.  reverse speed!
+    if (this.pos.y > height || this.pos.y < 0){
+      this.speed *= -1;
+    }
+    //add speed to our our particle position
+    this.pos.add(new p5.Vector(0,this.speed));
+  },
+  //method to change our Object name
+  changeName : function(){
+    this.name = "circle";
+  }
+  
+};
+
+var particle;
+function setup() {
+  createCanvas(400,400);
+  particle = new Particle(createVector(width/2, height/2));
+}
+
+function draw() {
+  background(255);
+  fill(particle.color);
+  noStroke();
+  ellipse(particle.pos.x,particle.pos.y, 100, 100);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  particle.changeName();
+  text(particle.name, particle.pos.x, particle.pos.y);
+  particle.bounce();
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+<section class="ex">
+  <h2>Object Function: Multi Particles</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+/////////////////////////////
+// Object constructor!
+/////////////////////////////
+function Particle(pos) {
+  this.speed   = 2;
+  this.name    =  "astroid";
+  this.color   = "blue";
+  this.pos     = pos;//pos is a p5.Vector
+}
+
+// here's where we define our methods
+// aka. the stuff the Object does
+Particle.prototype = {
+  constructor : Particle,
+  bounce : function(){
+    // if particle position has gone outside the boundary
+    // of our canvas.  reverse speed!
+    if (this.pos.y > height || this.pos.y < 0){
+      this.speed *= -1;
+    }
+    //add speed to our our particle position
+    this.pos.add(new p5.Vector(0,this.speed));
+  },
+  changeName : function(){
+    this.name = "circle";
+  }
+  
+};
+
+var particle, particleTwo;
+
+function setup() {
+  createCanvas(400,400);
+  particle = new Particle(createVector(width/2, height/2));
+  particleTwo = new Particle(createVector(width/4, height/2))
+}
+
+function draw() {
+  background(255);
+  fill(particle.color);
+  noStroke();
+  ellipse(particle.pos.x,particle.pos.y, 100, 100);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  particle.changeName();
+  text(particle.name, particle.pos.x, particle.pos.y);
+  particle.bounce();
+
+  fill(particleTwo.color);
+  noStroke();
+  ellipse(particleTwo.pos.x,particleTwo.pos.y, 100, 100);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  text(particleTwo.name, particleTwo.pos.x, particleTwo.pos.y);
+  particleTwo.bounce();
+
+}
+
+</code>
+      </pre>
+    </div>  
+  </section>
+</section><!-- END EXAMPLE -->
+
+
+<section class="ex">
+  <h2>Object Function: Particle with constructor</h2>
+  <section class="example_container">
+    <div class="code">
+      <pre>
+<code class="language-javascript">
+/////////////////////////////
+// Object constructor!
+/////////////////////////////
+function Particle(posY) {
+  this.speed   = 2;
+  this.name    =  "astroid";
+  this.color   = "blue";
+  this.posY     = posY;
+}
+
+// here's where we define our methods
+// aka. the stuff the Object does
+Particle.prototype = {
+  constructor : Particle,
+  bounce : function(){
+    // if particle position has gone outside the boundary
+    // of our canvas.  reverse speed!
+    if (this.posY > height || this.posY < 0){
+      this.speed *= -1;
+    }
+    //add speed to our our particle position
+    this.posY = this.posY + this.speed;
+  },
+  changeName : function(){
+    this.name = "circle";
+  }
+  
+};
+
+var particle;
+
+function setup() {
+  createCanvas(400,400);
+  particle = new Particle(height/2);
+}
+
+function draw() {
+  background(255);
+  fill(particle.color);
+  noStroke();
+  ellipse(width/2,particle.posY, 100, 100);
+  
+  fill(255);//white text
+  textAlign(CENTER);
+  particle.changeName();
+  text(particle.name, width/2, particle.posY);
+  particle.bounce();
+
+}
+
+</code>
+      </pre>
+    </div>  
   </section>
 </section><!-- END EXAMPLE -->
 <section class="ex">
   <h2>Homework assignment</h2>
   <div class="example_container">
-<p>Assignment: Generative Madlib poetry: Find a prose poetry text from Wikisource and replace all nouns and adjectives with random nouns and adjectives. Try adding a rhymescheme.</p>
-<p>Reading: Concerning the Visual in Poetry</p>
+<p>Assignment: Create a Particle System using Javascript Objects. Particles can be any size or shape you want.</p>
+<p>Reading: Getting Started With p5.js, ch.10</p>
   </div>
 </section>
+
 <script> $(document).ready(function() { renderCode(); }); </script>
 </body>
 </html>
