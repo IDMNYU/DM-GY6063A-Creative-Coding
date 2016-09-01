@@ -8,16 +8,12 @@ function setup() {
 
 function draw() {
   background(255);
-  //maintain source image ratio when resizing height
   var resizedHeight = img.height * width / img.width;
-  image(img, 0,0,img.width,img.height,0,0,width,resizedHeight);
-  //very important: filter needs to come after image()
-  //uncomment each filter to test
-  //filter(BLUR,map(mouseX,0,width,0,5));
-  filter(THRESHOLD,map(mouseX,0,width,0,1));
-  // filter(POSTERIZE,map(mouseX,0,width,2,10));
-  // filter(ERODE);
+  
+  image(img, 0,0,img.width, img.height, 0,0, width, resizedHeight);
+  
+  // filter(THRESHOLD, map(mouseX, 0, width, 0,1));
+  // filter(POSTERIZE, map(mouseX, 0,width, 2,5));
   // filter(INVERT);
-  //filter(GRAY);
-  //filter(DILATE);
+  filter(GRAY);
 }

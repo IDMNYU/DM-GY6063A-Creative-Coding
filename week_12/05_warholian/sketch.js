@@ -1,9 +1,9 @@
-var img;
-var imgBg;
+var bgImg, elvisImg;
 var numElvises = 5;
+
 function preload(){
-  img = loadImage('elvis-flaming-star.png');
-  imgBg = loadImage('Blue_sky_south_of_France.png');
+  bgImg = loadImage('Blue_sky_south_of_France.png');
+  elvisImg = loadImage('elvis-flaming-star.png');
 }
 
 function setup() {
@@ -11,12 +11,9 @@ function setup() {
 }
 
 function draw() {
-  background(imgBg);
-  //try different tints and repetition patterns
-  tint(100,0,0,150);
-  for(var i=0; i < numElvises; i++){
-    tint(100,i*10,0,150);
-    image(img,i*40,0,img.width/2,img.height/2);
-  }
-
+  background(bgImg);
+ for(var i=0; i < numElvises; i++){
+   tint(i*20, i*20,0, 150);
+   image(elvisImg, i * 20, 0, elvisImg.width /2, elvisImg.height /2);
+ } 
 }
