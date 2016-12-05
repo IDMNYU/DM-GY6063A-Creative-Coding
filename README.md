@@ -77,7 +77,7 @@ Course requirements include small weekly projects (studies), a project proposal,
 
 # Final project
 
-Fall 2016 semester:  Final projects must be submited no later than 12/14/16.  Submissions after the 14th will not receive credit.
+Fall 2016 semester:  Final projects must be submitted no later than 12/14/16.  Submissions after the 14th will not receive credit.
 
 Submit 3 sketches for inclusion in an interactive book. All of the sketches must be created with p5.js, and demonstrate different techniques learned in class including but not limited to generative text, particle systems, and color theory.
 
