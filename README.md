@@ -76,6 +76,9 @@ Course requirements include small weekly projects (studies), a project proposal,
 * Final project. This project can be an interactive tool, a data visualization/sonification, or any other approved proposal. Your project must use p5.js.  All final projects will be collected and put together as an "interactive book" (25%).
 
 # Final project
+
+Fall 2016 semester:  Final projects must be submited no later than 12/14/16.  Submissions after the 14th will not receive credit.
+
 Submit 3 sketches for inclusion in an interactive book. All of the sketches must be created with p5.js, and demonstrate different techniques learned in class including but not limited to generative text, particle systems, and color theory.
 
 Final projects from previous semesters can be found: [HERE](http://bxmc.poly.edu/cc/#)
@@ -159,7 +162,7 @@ beginShape(), endShape(), vertex(), for loop
 - **Reading**: No Reading this week.
 - **Assignment**: Work on Final Projects.
 
-**Week 14:** Final Project Presentations.  All homework assignments due
+**Week 14:** All final projects and homework assignments due, 12/14/16
 
 
 * * *

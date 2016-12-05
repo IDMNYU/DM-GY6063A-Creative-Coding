@@ -15,18 +15,13 @@ function setup() {
   // specify multiple formats for different browsers
   
   space.loop(); // set the video to loop and start playing
-  space.hide(); // by default video shows up in separate dom
-                  // element. hide it and draw it to the canvas
-                  // instead
   space.volume(0);//we set the volume to 0 because we don't want
                   //sound
+  space.hide();
 }
 
 function draw() {
   background(150);
-  image(space,0,0);
-  space.filter(BLUR);
-  image(space, width/2,height/2);
-  //image(space,10,10); // draw the video frame to canvas
-  //image(space,150,150); // draw a second copy to canvas
+  tint(255,0,0);
+  image(space, width/2 - space.width/2, height/2 - space.height/2);
 }

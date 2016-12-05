@@ -11,12 +11,10 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
   // specify multiple formats for different browsers
   space = createVideo(['media/anni003.mp4']);
-  space.loop(); // set the video to loop and start playing
-  space.volume(0);//we set the volume to 0 because we don't want
-                  //sound
-  space.showControls();
-  //a centered video element
-  space.position(windowWidth/2 - (space.width/2),windowHeight/2 - (space.height/2));
+  space.loop();
+  space.showControls(true);
+  space.volume(0);
+  space.position(width/2 - space.width/2, height/2 - space.height/2);
 }
 function draw(){
   

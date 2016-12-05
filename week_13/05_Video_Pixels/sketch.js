@@ -9,27 +9,30 @@
 var fingers;
 
 function setup() {
-  createCanvas(windowWidth,windowHeight);
+  
   // specify multiple formats for different browsers
   space = createVideo(['media/anni003.mp4']);
   space.loop(); // set the video to loop and start playing
   space.volume(0);//we set the volume to 0 because we don't want
                   //sound
   space.hide();
-  noStroke();
+  // noStroke();
   //fill(0);
-  space.loadPixels();
+  
+  createCanvas(windowWidth,windowHeight);
+  // noLoop();
 }
 
 function draw() {
   background(255);
-
-  //var stepSize = round(constrain(mouseX / 8, 6, 64));
-  for (var y=0; y<height; y+=25) {
-    for (var x=0; x<width; x+=25) {
+  space.loadPixels();
+  // var stepSize = round(constrain(mouseX / 8, 6, 64));
+  for (var y=0; y<height; y+=70) {
+    for (var x=0; x<width; x+=70) {
       var i = y * width + x;
       var darkness = (255 - space.pixels[i*4 % (space.pixels.length / 4)])/255;
-      var radius = darkness*25;//stepSize * darkness;
+      var radius = 25;//darkness*25;//stepSize * darkness;
+      println(space.pixels);
       fill(
         space.pixels[i % space.pixels.length],
         space.pixels[i*2 % space.pixels.length],

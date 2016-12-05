@@ -22,8 +22,7 @@ function setup() {
 }
 function draw(){
   background(255);
-  // console.log(space.time());
-  text("current video time: " + space.time(), 20,32);
-  text("video duration: " + space.duration(), 20,64);
+  text("current time is " + space.time(), 20,32);
+  text("video duration is " + space.duration(), 20, 64);
   
 }
